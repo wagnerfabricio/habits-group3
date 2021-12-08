@@ -64,6 +64,6 @@ const Login = () => {
       <Background />
     </Container>
   );
-};
+}
 
 export default Login;
