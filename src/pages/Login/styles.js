@@ -31,6 +31,7 @@ export const Content = styled.div`
     height: 45px;
     border-radius: 0.5rem;
     border: 0;
+    
     width: 100%;
     font-weight: 600;
     transition: 0.5s;
