@@ -1,6 +1,6 @@
 import { Container, InputContainer } from "./styles";
 
-function Input({ label, register, name, error, icon: Icon, ...rest }) {
+const Input = ({ label, register, name, error, icon: Icon, ...rest }) => {
   return (
     <Container>
       <div>
@@ -13,6 +13,6 @@ function Input({ label, register, name, error, icon: Icon, ...rest }) {
       </InputContainer>
     </Container>
   );
-}
+};
 
 export default Input;

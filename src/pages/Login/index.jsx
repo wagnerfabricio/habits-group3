@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useUser } from "../../providers/user";
 
-function Login() {
+const Login = () => {
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório!"),
     password: yup
