@@ -1,18 +1,16 @@
 import styled, { keyframes } from "styled-components";
-
-import SignUpImage from '../../assets/images/login-image.svg'
+import SignUpImage from "../../assets/images/cadastre-se.svg";
 
 export const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: stretch;
 `;
-
 export const Background = styled.div`
   @media (min-width: 1100px) {
     flex: 1;
-
-    background: url(${SignUpImage}) no-repeat center, linear-gradient(pink, blue, purple);
+    background: url(${SignUpImage}) no-repeat center,
+      linear-gradient(pink, blue, purple);
     background-size: 40vw;
   }
 `;
@@ -41,25 +39,24 @@ export const Content = styled.div`
     font-family: "Roboto Mono";
     margin-top: 1rem;
     :hover {
-
-        border: 2px solid #c85311;
+      border: 2px solid #c85311;
+    }
   }
+  .form-father {
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .form-father{
-      width: 30vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  form{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px;
-      background-color: white;
-      border-radius: 10px;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px;
+    background-color: white;
+    border-radius: 10px;
   }
 `;
 
@@ -67,10 +64,12 @@ const appearFromRight = keyframes`
   from {
     opacity: 0;
     transform: translateX(50px)
+   
   }
   to {
     opacity: 1;
     transform: translateX(0)
+   
   }
 `;
 
