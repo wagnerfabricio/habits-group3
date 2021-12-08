@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import SignUpImage from '../../assets/images/login-image.svg'
+import SignUpImage from "../../assets/images/login-image.svg";
 
 export const Container = styled.div`
   height: 100vh;
@@ -10,7 +10,8 @@ export const Container = styled.div`
 export const Background = styled.div`
   @media (min-width: 1100px) {
     flex: 1;
-    background: url(${SignUpImage}) no-repeat center, linear-gradient(pink, blue, purple);
+    background: url(${SignUpImage}) no-repeat center,
+      linear-gradient(pink, blue, purple);
     background-size: 40vw;
   }
 `;
@@ -31,7 +32,7 @@ export const Content = styled.div`
     height: 45px;
     border-radius: 0.5rem;
     border: 0;
-    
+
     width: 100%;
     font-weight: 600;
     transition: 0.5s;
@@ -39,24 +40,24 @@ export const Content = styled.div`
     font-family: "Roboto Mono";
     margin-top: 1rem;
     :hover {
-        border: 2px solid #c85311;
+      border: 2px solid #c85311;
+    }
   }
+  .form-father {
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .form-father{
-      width: 30vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  form{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px;
-      background-color: white;
-      border-radius: 10px;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px;
+    background-color: white;
+    border-radius: 10px;
   }
 `;
 

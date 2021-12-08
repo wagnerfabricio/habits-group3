@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <Container>
       <Content>
-        <AnimationContainer className="form-father">
+        <AnimationContainer className='form-father'>
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Login</h1>
             <Input
@@ -56,8 +56,7 @@ const Login = () => {
             />
             <button type="submit">Enviar</button>
             <p>
-              Caso ainda não tenha um cadastro{" "}
-              <Link to="/signup">clique aqui</Link> para fazer o seu cadastro.
+              Caso ainda não tenha um cadastro <Link to="/signup">clique aqui</Link> para fazer o seu cadastro.
             </p>
           </form>
         </AnimationContainer>
