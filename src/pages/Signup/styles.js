@@ -2,17 +2,21 @@ import styled, { keyframes } from "styled-components";
 import SignUpImage from "../../assets/images/cadastre-se.svg";
 
 export const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh - 3vh);
   display: flex;
   align-items: stretch;
 `;
+
+
 export const Background = styled.div`
-  @media (min-width: 1100px) {
+
+  @media (min-width: 1024px) {
     flex: 1;
     background: url(${SignUpImage}) no-repeat center,
       linear-gradient(pink, blue, purple);
     background-size: 40vw;
   }
+  
 `;
 
 export const Content = styled.div`
@@ -22,26 +26,10 @@ export const Content = styled.div`
   justify-content: center;
   place-content: center;
   width: 100%;
-  max-width: 700px;
+  
   background: linear-gradient(pink, blue, purple);
 
-  button {
-    background: ${(props) => (props.whiteSchema ? "#f5f5f5" : "#0c0d0d")};
-    color: ${(props) => (props.whiteSchema ? "#0c0d0d" : "#f5f5f5")};
-    height: 45px;
-    border-radius: 0.5rem;
-    border: 0;
 
-    width: 100%;
-    font-weight: 600;
-    transition: 0.5s;
-    border: 2px solid black;
-    font-family: "Roboto Mono";
-    margin-top: 1rem;
-    :hover {
-      border: 2px solid #c85311;
-    }
-  }
   .form-father {
     width: 30vw;
     display: flex;
@@ -54,10 +42,27 @@ export const Content = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 100px;
+    padding: 30px 20px; 
     background-color: white;
     border-radius: 10px;
+    width: 25%;
+    gap: 10px 0;
   }
+ 
+  @media (min-width: 481) {
+    width: 40%;
+    form{
+    
+  }
+  }
+
+  @media (min-width: 1024px) {
+    width: 40%;
+    form{
+    padding: 60px 15px;
+  }
+  }
+
 `;
 
 const appearFromRight = keyframes`
@@ -88,6 +93,7 @@ export const AnimationContainer = styled.div`
     }
     p {
       margin-top: 0.5rem;
+      margin:0.1rem;
       a {
         font-weight: bold;
         color: #c85311;
