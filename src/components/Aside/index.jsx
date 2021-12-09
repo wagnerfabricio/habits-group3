@@ -28,11 +28,17 @@ export const Aside = () => {
       </UpperSection>
 
       <LowerSection>
-        <span>12 Atividades</span>
-        <span>06 Grupos</span>
-        <span>08 Hábitos</span>
-        <span>04 Goals</span>
-        <PieChart></PieChart>
+        <div>
+            <span>12 Atividades</span>
+            <span>06 Grupos</span>
+            <span>08 Hábitos</span>
+
+        </div>
+        <div>
+            <span>04 Goals</span>
+            <PieChart></PieChart>
+
+        </div>
       </LowerSection>
     </Container>
   );
