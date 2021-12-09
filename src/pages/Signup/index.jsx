@@ -47,7 +47,7 @@ function SignUp() {
   };
 
   return (
-    <div>
+   
     <Container>
       <Background />
       <Content>
@@ -95,9 +95,9 @@ function SignUp() {
           </form>
         </AnimationContainer>
       </Content>
-    </Container>
-    <Footer whiteSchema={true}> <p> © 2021 Name. All rights reserved. </p> </Footer>
-    </div>
+      </Container>
+    
+    
   );
 }
 

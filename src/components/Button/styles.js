@@ -7,6 +7,7 @@ export const Container = styled.button`
     border-radius: 0.5rem;
     border: 0;
     width: 100%;
+    max-width: 336px;
     font-weight: 600;
     transition: 0.5s;
     border: 2px solid #EF5533;

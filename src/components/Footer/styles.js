@@ -17,9 +17,5 @@ export const Container = styled.div`
   p{
     margin-left:10px;
   }
-  @media (max-width: 650px) {
-    height: 3px;
-    display: flex;
-  
-  }
+ 
 `;
