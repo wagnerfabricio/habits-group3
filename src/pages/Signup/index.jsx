@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { Link, useHistory } from "react-router-dom";
-import Footer from "../../components/Footer";
+
 
 function SignUp() {
   const schema = yup.object().shape({
