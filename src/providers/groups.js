@@ -66,7 +66,6 @@ export const GroupsProvider = ({ children }) => {
       })
       .then((response) => {
         userGroupsSubscriptions()
-        console.log(response);
         toast.success("Meta criada com sucesso");
       })
       .catch((_) => toast.error("Erro inesperado, tente mais tarde"));
@@ -81,7 +80,6 @@ export const GroupsProvider = ({ children }) => {
       })
       .then((response) => {
         userGroupsSubscriptions()
-        console.log(response);
         toast.success("Meta alterada com sucesso");
       })
       .catch((_) => toast.error("Essa meta não existe"));
