@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
 
-  @media (min-width: 999px) {
+  @media (min-width: 1024px) {
     flex: 1;
     background: url(${SignUpImage}) no-repeat center,
       linear-gradient(pink, blue, purple);
@@ -42,24 +42,24 @@ export const Content = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 50px 10px;    
+    padding: 30px 20px; 
     background-color: white;
     border-radius: 10px;
     width: 25%;
     gap: 10px 0;
   }
  
-  @media (min-width: 800px) {
+  @media (min-width: 481) {
     width: 40%;
     form{
-    padding: 30px 20px;
+    
   }
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1024px) {
     width: 40%;
     form{
-    padding: 100px;
+    padding: 60px 15px;
   }
   }
 
