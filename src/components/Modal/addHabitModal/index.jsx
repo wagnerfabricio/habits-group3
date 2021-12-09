@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { Container } from "./style";
-import { useUser } from "../../providers/user";
+import { useUser } from "../../../providers/user";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { api } from "../../services/api";
+import { api } from "../../../services/api";
 
 
 const AddHabitModal = () => {
 
-    const [data, setData] = useState({})
     const { userData } = useUser()
 
     const formSchema = yup.object().shape({
@@ -27,20 +26,19 @@ const AddHabitModal = () => {
     )
 
     const onSubmitFunction = (infos) => {
-        setData({
+        const data = {
             "title": infos.title,
             "category": infos.category,
             "difficulty": infos.difficulty,
             "frequency": infos.frequency,
             "achieved": false,
             "how_much_achieved": 0,
-            "user": 74 //userData.id
-        })
+            "user": userData.id
+        }
         api
             .post(`/habits/`, data, {
                 headers: {
-                    Authorization: `Bearer ${"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5NDI4NDQzLCJqdGkiOiI4MjJkMDYzYTMwYWQ0NmQ4OTdlZTlmMWNhNmU0OGJkMSIsInVzZXJfaWQiOjc0fQ.pAnCP5eN5J7dM3BsSCHwk_E1D45fqKeYD66CF2l5t0c"}`,
-                    //userData.token
+                    Authorization: `Bearer ${userData.token}`,
                 },
             })
             .then((response) => {
