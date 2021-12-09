@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import SignUpImage from "../../assets/images/cadastre-se.svg";
 
 export const Container = styled.div`
-  height: 100vh;
+  height: calc(100vh - 3vh);
   display: flex;
   align-items: stretch;
 `;

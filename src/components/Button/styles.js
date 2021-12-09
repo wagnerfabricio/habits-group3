@@ -1,18 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  background: #ef5533;
-  color: #ffffff;
-  display: block;
-  border: none;
-  border-radius: 8px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 28px;
-  width: 100%;
-  max-width: 450px;
-  height: 60px;
-  transition: 0.4s;
-  min-width: 320px;
-`;
+ background: ${(props) => (props.whiteSchema ? "#f5f5f5" : "#EF5533")};
+    color: ${(props) => (props.whiteSchema ? "#EF5533" : "#f5f5f5")};
+    height: 45px;
+    border-radius: 0.5rem;
+    border: 0;
+    width: 100%;
+    font-weight: 600;
+    transition: 0.5s;
+    border: 2px solid #EF5533;
+    margin-top: 1rem;
+    :hover {
+      border: 2px solid #f5f5f5;
+    }
+  `

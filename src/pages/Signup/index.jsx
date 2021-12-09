@@ -7,7 +7,8 @@ import { api } from "../../services/api";
 import { toast } from "react-toastify";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 function SignUp() {
   const schema = yup.object().shape({
@@ -46,6 +47,7 @@ function SignUp() {
   };
 
   return (
+    <div>
     <Container>
       <Background />
       <Content>
@@ -94,6 +96,8 @@ function SignUp() {
         </AnimationContainer>
       </Content>
     </Container>
+    <Footer whiteSchema={true}> <p> © 2021 Name. All rights reserved. </p> </Footer>
+    </div>
   );
 }
 
