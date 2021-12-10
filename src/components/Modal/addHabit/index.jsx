@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container } from "./style";
 import { useUser } from "../../../providers/user";
+import { useHabits } from "../../../providers/habits.js"
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -10,6 +11,7 @@ import { api } from "../../../services/api";
 const AddHabitModal = () => {
 
     const { userData } = useUser()
+    const { createHabit } = useHabits()
 
     const formSchema = yup.object().shape({
         title: yup.string().required("Informe o título"),
@@ -35,17 +37,7 @@ const AddHabitModal = () => {
             "how_much_achieved": 0,
             "user": userData.id
         }
-        api
-            .post(`/habits/`, data, {
-                headers: {
-                    Authorization: `Bearer ${userData.token}`,
-                },
-            })
-            .then((response) => {
-                console.log(response)
-
-            })
-            .catch((error) => console.log(error));
+        createHabit(data);
     }
     return (
         <Container>
