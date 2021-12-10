@@ -1,6 +1,3 @@
-import ActivityCard from "../ActivityCard";
-import GroupCard from "../GroupCard";
-import HabitCard from "../HabitCard";
 import {
   Container,
   Content,
@@ -13,7 +10,7 @@ import {
 
 const Main = () => {
   return (
-    <Container>
+    <Container className="main">
       <Header>
         <img
           src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
@@ -35,32 +32,38 @@ const Main = () => {
             <div></div>
           </Header>
           <HabitsList>
-            <HabitCard schema={"Fácil"} color={"#E5DDF0"} />
-            <HabitCard schema={"Difícil"} color={"#C3DDDC"} />
-            <HabitCard schema={"Médio"} />
-            <HabitCard schema={"Médio"} />
-            <HabitCard schema={"Difícil"} color={"#C3DDDC"} />
+
+            <p style={{ height: "80px", background: "lightGreen", marginBottom: "10px"}}>Habit Card 1</p>
+            <p style={{ height: "80px", background: "lightGreen", marginBottom: "10px"}}>Habit Card 1</p>
+            <p style={{ height: "80px", background: "lightGreen", marginBottom: "10px"}}>Habit Card 1</p>
+            <p style={{ height: "80px", background: "lightGreen", marginBottom: "10px"}}>Habit Card 1</p>
+            <p style={{ height: "80px", background: "lightGreen", marginBottom: "10px"}}>Habit Card 1</p>
           </HabitsList>
           <h2>Atividades</h2>
           <ActivitiesList>
-            <ActivityCard />
-            <ActivityCard />
-            <ActivityCard />
+            <p style={{ height: "70px", background: "lightGrey", marginBottom: "10px" }}> Activity Card 1 </p>
+            <p style={{ height: "70px", background: "lightGrey", marginBottom: "10px" }}> Activity Card 1 </p>
+            <p style={{ height: "70px", background: "lightGrey", marginBottom: "10px" }}> Activity Card 1 </p>
+            <p style={{ height: "70px", background: "lightGrey", marginBottom: "10px" }}> Activity Card 1 </p>
+            <p style={{ height: "70px", background: "lightGrey", marginBottom: "10px" }}> Activity Card 1 </p>
+            <p style={{ height: "70px", background: "lightGrey", marginBottom: "10px" }}> Activity Card 1 </p>
           </ActivitiesList>
         </LeftBox>
         <Content className="group">
-          <div>
+          <Header>
             <h2>Grupos</h2>
             <p>Total: </p>
-          </div>
+          </Header>
           <Content className="groups_list">
-            <GroupCard />
-            <GroupCard />
-            <GroupCard />
-            <GroupCard />
-            <GroupCard />
-            <GroupCard />
-            <GroupCard />
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
+            <p style={{ height: "80px", background: "lightBlue", marginBottom: "10px" }}>Group Card 1</p>
           </Content>
         </Content>
       </GridBox>

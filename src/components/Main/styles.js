@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* background-color: var(--color-grey-10); */
   background: #ffffff;
-  height: 100%;
+  height: calc(100vh - 30px);
   border-radius: 10px;
   box-sizing: border-box;
 `;
@@ -31,7 +30,6 @@ export const Content = styled.div`
   }
 
   &.groups_list {
-    /* height: 90%; */
     background: var(--color-magenta);
     border-radius: 10px;
     overflow-y: scroll;
@@ -71,8 +69,6 @@ export const LeftBox = styled.div`
 
 export const HabitsList = styled.ul`
   list-style-type: none;
-  /* width: 100%; */
-  /* height: 300px; */
   border-radius: 10px;
   margin-bottom: 10px;
   overflow-y: scroll;
