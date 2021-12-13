@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
 import Button from '../../Button/index'
+import { toast } from "react-toastify";
+import { ErrorSharp } from "@mui/icons-material";
 
 
 const AddHabitModal = ({ handleCloseAddHabit }) => {
@@ -17,7 +19,7 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
         title: yup.string().required("Informe o título"),
         category: yup.string().required("Informe a categoria"),
         difficulty: yup.string().required("qual a dificuldade?"),
-        frequency: yup.string().required("qual a dificuldade?"),
+        frequency: yup.string().required("qual a frequência?"),
 
     })
 
@@ -27,7 +29,11 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
         }
     )
 
+
+
     const onSubmitFunction = (infos) => {
+
+
         const data = {
             "title": infos.title,
             "category": infos.category,
@@ -38,7 +44,21 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
             "user": userData.id
         }
         createHabit(data);
+        handleCloseAddHabit()
     }
+    useEffect(() => {
+        if (Object.keys(errors).length > 0) {
+            toast.error("Preencha todos os campos corretamente...")
+
+        }
+
+    }, [errors])
+
+
+
+
+
+
     return (
         <Container>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
@@ -48,6 +68,7 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
                 </div>
 
                 <input className="inputText" placeholder="Qual seu hábito?" {...register("title")}></input>
+
                 <input className="inputText" placeholder="Qual a categoria do seu hábito?" {...register("category")}></input>
 
 
@@ -55,30 +76,30 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
                     <legend>Dificuldade</legend>
                     <div className="divRadio">
                         <input className="radio" type="radio" id="dificultEasy" name="dificult" value="Fácil" {...register("difficulty")} />
-                        <label for="dificultEasy">Fácil</label>
+                        <label htmlFor="dificultEasy">Fácil</label>
                     </div>
                     <div className="divRadio">
                         <input className="radio" type="radio" id="dificultMedium" name="dificult" value="Moderada" {...register("difficulty")} />
-                        <label for="dificultMedium">Moderada</label>
+                        <label htmlFor="dificultMedium">Moderada</label>
                     </div>
                     <div className="divRadio">
                         <input className="radio" type="radio" id="dificultHard" name="dificult" value="Difícil" {...register("difficulty")} />
-                        <label for="dificultHard">Difícil</label>
+                        <label htmlFor="dificultHard">Difícil</label>
                     </div>
                 </fieldset>
                 <fieldset className="fildfrequency" >
                     <legend>Frequência</legend>
                     <div className="divRadio">
                         <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Diária" {...register("frequency")} />
-                        <label for="frequencyDaily">Diária</label>
+                        <label htmlFor="frequencyDaily">Diária</label>
                     </div>
                     <div className="divRadio">
                         <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Semanal"  {...register("frequency")} />
-                        <label for="frequencyWeekly">Semanal</label>
+                        <label htmlFor="frequencyWeekly">Semanal</label>
                     </div>
                     <div className="divRadio">
                         <input className="radio" type="radio" id="frequencyMonthly" name="frequency" value="Mensal" {...register("frequency")} />
-                        <label for="frequencyMonthly">Mensal</label>
+                        <label htmlFor="frequencyMonthly">Mensal</label>
                     </div>
                 </fieldset>
 
