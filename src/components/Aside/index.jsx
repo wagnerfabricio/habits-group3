@@ -1,45 +1,68 @@
 import { Container, UpperSection, LowerSection, PieChart } from "./styles";
 
-export const Aside = () => {
+const Aside = () => {
   return (
     <Container>
       <UpperSection>
         <div>
-          <figure>
-            <img src="" alt="" />
-          </figure>
+          <div>
+            <figure>
+              <img src="" alt="" />
+            </figure>
+          </div>
           <h2>Kenzinho</h2>
         </div>
 
         <div>
+          <div>
+            <figure>
+              <img src="" alt="" />
+            </figure>
+          </div>
+          <div>
           <figure>
-            <img src="" alt="" />
-          </figure>
+              <img src="" alt="" />
+            </figure>
+          </div>
+          <div>
           <figure>
-            <img src="" alt="" />
-          </figure>
+              <img src="" alt="" />
+            </figure>
+          </div>
+          <div>
           <figure>
-            <img src="" alt="" />
-          </figure>
-          <figure>
-            <img src="" alt="" />
-          </figure>
+              <img src="" alt="" />
+            </figure>
+          </div>
         </div>
       </UpperSection>
 
       <LowerSection>
         <div>
-            <span>12 Atividades</span>
-            <span>06 Grupos</span>
-            <span>08 Hábitos</span>
-
+          <div>
+            <span>12</span>
+            <p>Atividades</p>
+          </div>
+          <div>
+            <span>06</span>
+            <p>Grupos</p>
+          </div>
+          <div>
+            <span>08</span>
+            <p>Hábitos</p>
+          </div>
         </div>
-        <div>
-            <span>04 Goals</span>
-            <PieChart></PieChart>
 
+        <div>
+          <div>
+            <span>04</span>
+            <p>Goals</p>
+          </div>
+          <PieChart></PieChart>
         </div>
       </LowerSection>
     </Container>
   );
 };
+
+export default Aside;
