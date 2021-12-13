@@ -36,7 +36,7 @@ export const Container = styled.div`
     font-size: 18px;
     font-weight: bold;
     position: absolute;
-    margin: 10px 0 0 330px;
+    margin: 10px 0 0 280px;
   }
   h2 {
     margin: 40px auto 0 auto;
