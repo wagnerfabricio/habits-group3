@@ -85,3 +85,8 @@ export const ActivitiesList = styled.ul`
     margin-bottom: 0;
   }
 `;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
