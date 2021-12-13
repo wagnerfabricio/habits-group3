@@ -5,10 +5,10 @@ import { useHabits } from "../../../providers/habits.js"
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { api } from "../../../services/api";
+import Button from '../../Button/index'
 
 
-const AddHabitModal = () => {
+const AddHabitModal = ({ handleCloseAddHabit }) => {
 
     const { userData } = useUser()
     const { createHabit } = useHabits()
@@ -42,11 +42,47 @@ const AddHabitModal = () => {
     return (
         <Container>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
-                <input placeholder="Qual seu hábito?" {...register("title")}></input>
-                <input placeholder="Qual a categoria do seu hábito?" {...register("category")}></input>
-                <input placeholder="Qual a dificuldade?" {...register("difficulty")}></input>
-                <input placeholder="Qual a frequência?" {...register("frequency")}></input>
-                <button type="submit">Cadastrar Hábito</button>
+                <div className="headder">
+                    <h2>Adicionar hábito</h2>
+                    <button onClick={() => { handleCloseAddHabit() }}>X</button>
+                </div>
+
+                <input className="inputText" placeholder="Qual seu hábito?" {...register("title")}></input>
+                <input className="inputText" placeholder="Qual a categoria do seu hábito?" {...register("category")}></input>
+
+
+                <fieldset className="fildDificult"  >
+                    <legend>Dificuldade</legend>
+                    <div className="divRadio">
+                        <input className="radio" type="radio" id="dificultEasy" name="dificult" value="Fácil" {...register("difficulty")} />
+                        <label for="dificultEasy">Fácil</label>
+                    </div>
+                    <div className="divRadio">
+                        <input className="radio" type="radio" id="dificultMedium" name="dificult" value="Moderada" {...register("difficulty")} />
+                        <label for="dificultMedium">Moderada</label>
+                    </div>
+                    <div className="divRadio">
+                        <input className="radio" type="radio" id="dificultHard" name="dificult" value="Difícil" {...register("difficulty")} />
+                        <label for="dificultHard">Difícil</label>
+                    </div>
+                </fieldset>
+                <fieldset className="fildfrequency" >
+                    <legend>Frequência</legend>
+                    <div className="divRadio">
+                        <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Diária" {...register("frequency")} />
+                        <label for="frequencyDaily">Diária</label>
+                    </div>
+                    <div className="divRadio">
+                        <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Semanal"  {...register("frequency")} />
+                        <label for="frequencyWeekly">Semanal</label>
+                    </div>
+                    <div className="divRadio">
+                        <input className="radio" type="radio" id="frequencyMonthly" name="frequency" value="Mensal" {...register("frequency")} />
+                        <label for="frequencyMonthly">Mensal</label>
+                    </div>
+                </fieldset>
+
+                <Button type="submit">Cadastrar Hábito</Button>
             </form>
         </Container>
     )
