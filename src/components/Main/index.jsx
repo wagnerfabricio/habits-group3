@@ -1,6 +1,7 @@
 import { useHabits } from "../../providers/habits";
 import { useUserGroups } from "../../providers/userGroups";
 import HabitCard from "../HabitCard";
+import { ButtonAdd } from "../ButtonAdd";
 import {
   Container,
   Content,
@@ -9,9 +10,10 @@ import {
   Header,
   ActivitiesList,
   GridBox,
+  FlexContainer,
 } from "./styles";
 
-const Main = () => {
+const Main = ({handleClick}) => {
   const { userHabits } = useHabits();
   const { userGroups } = useUserGroups();
 
@@ -43,7 +45,10 @@ const Main = () => {
         <LeftBox>
           <Header>
             <div>
-              <h2>Seus hábitos</h2>
+              <FlexContainer>
+                <h2>Seus hábitos</h2>
+                <ButtonAdd onClick={handleClick}/>
+              </FlexContainer>
               <p>
                 {new Date().toLocaleDateString("pt-BR", {
                   day: "2-digit",
