@@ -41,7 +41,7 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
             "frequency": infos.frequency,
             "achieved": false,
             "how_much_achieved": 0,
-            "user": userData.id
+            "user": userData.user.id
         }
         createHabit(data);
         handleCloseAddHabit()
