@@ -11,11 +11,11 @@ export const Container = styled.div`
   width: 100%;
   height: 3vh;
   transition: 0.4s;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  p{
-    margin-left:10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  p {
+    margin-left: 10px;
   }
- 
 `;
