@@ -28,7 +28,8 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log("oi");
-    login(data, "/");
+    login(data);
+    history.push('/dashboard');
   };
 
   return (
