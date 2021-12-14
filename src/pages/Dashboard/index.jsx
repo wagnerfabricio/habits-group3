@@ -19,7 +19,7 @@ const Dashboard = () => {
 
             <Container>
                 <Aside />
-                <Main handleClick={handleOpenAddHabit}/>
+                <Main handleClick={handleOpenAddHabit} />
             </Container>
 
             <Modal
