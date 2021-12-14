@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
 import Button from '../../Button/index'
 import { toast } from "react-toastify";
-import { ErrorSharp } from "@mui/icons-material";
+
 
 
 const AddHabitModal = ({ handleCloseAddHabit }) => {
@@ -41,7 +41,7 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
             "frequency": infos.frequency,
             "achieved": false,
             "how_much_achieved": 0,
-            "user": userData.id
+            "user": userData.user.id
         }
         createHabit(data);
         handleCloseAddHabit()
@@ -61,11 +61,11 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
 
     return (
         <Container>
+            <div className="headder">
+                <h2>Adicionar hábito</h2>
+                <button onClick={() => { handleCloseAddHabit() }}>X</button>
+            </div>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
-                <div className="headder">
-                    <h2>Adicionar hábito</h2>
-                    <button onClick={() => { handleCloseAddHabit() }}>X</button>
-                </div>
 
                 <input className="inputText" placeholder="Qual seu hábito?" {...register("title")}></input>
 

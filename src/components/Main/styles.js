@@ -47,14 +47,13 @@ export const Header = styled.header`
     border-radius: 10px 10px 0 0;
   }
 
-  h2 {
-    /* color: var(--color-grey-10); */
-    /* text-shadow: 0px 0px 1px white; */
-  }
-
   p {
     font-size: 1rem;
-    color: var(--color-grey-10);
+    color: grey;
+  }
+
+  span {
+    font-weight: bold;
   }
 `;
 
@@ -76,8 +75,6 @@ export const HabitsList = styled.ul`
 
 export const ActivitiesList = styled.ul`
   list-style-type: none;
-  /* width: 100%; */
-  /* height: 150px; */
   background: #f0ede9;
   border-radius: 10px;
   overflow-y: scroll;
@@ -87,4 +84,9 @@ export const ActivitiesList = styled.ul`
     padding-bottom: 0;
     margin-bottom: 0;
   }
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
