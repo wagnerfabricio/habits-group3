@@ -7,13 +7,15 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
 import Button from '../../Button/index'
 import { toast } from "react-toastify";
+import { FiX } from "react-icons/fi";
 
 
 
-const EditHabitModal = ({ handleCloseAddHabit }) => {
+
+const EditHabitModal = ({ handleCloseEditHabit, habit }) => {
 
     const { userData } = useUser()
-    const { createHabit } = useHabits()
+    const { editHabit, deleteHabit } = useHabits()
 
     const formSchema = yup.object().shape({
         title: yup.string().required("Informe o título"),
@@ -39,12 +41,12 @@ const EditHabitModal = ({ handleCloseAddHabit }) => {
             "category": infos.category,
             "difficulty": infos.difficulty,
             "frequency": infos.frequency,
-            "achieved": false,
-            "how_much_achieved": 0,
+            "achieved": habit.achieved,
+            "how_much_achieved": habit.how_much_achieved,
             "user": userData.user.id
         }
-        createHabit(data);
-        handleCloseAddHabit()
+        editHabit(data, habit.id);
+        handleCloseEditHabit()
     }
     useEffect(() => {
         if (Object.keys(errors).length > 0) {
@@ -55,56 +57,58 @@ const EditHabitModal = ({ handleCloseAddHabit }) => {
     }, [errors])
 
 
-
+    const test = habit.difficulty
 
 
 
     return (
         <Container>
             <div className="headder">
-                <h2>Adicionar hábito</h2>
-                <button onClick={() => { handleCloseAddHabit() }}>X</button>
+                <h2>Editar hábito</h2>
+                <button onClick={handleCloseEditHabit}><FiX></FiX></button>
             </div>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
 
-                <input className="inputText" defaultValue="tit" {...register("title")}></input>
+                <input className="inputText" defaultValue={habit.title} {...register("title")}></input>
 
-                <input className="inputText" defaultValue="cat" {...register("category")}></input>
+                <input className="inputText" defaultValue={habit.category} {...register("category")}></input>
 
 
                 <fieldset className="fildDificult"  >
                     <legend>Dificuldade</legend>
                     <div className="divRadio">
-                        <input className="radio" type="radio" id="dificultEasy" name="dificult" value="Fácil" {...register("difficulty")} />
+                        <input className="radio" type="radio" id="dificultEasy" name="dificult" value="Fácil"  {...register("difficulty")} defaultChecked={habit.difficulty === "Fácil" ? "defaultChecked" : false} />
                         <label htmlFor="dificultEasy">Fácil</label>
                     </div>
                     <div className="divRadio">
-                        <input className="radio" type="radio" id="dificultMedium" name="dificult" value="Moderada" {...register("difficulty")} />
+                        <input className="radio" type="radio" id="dificultMedium" name="dificult" value="Moderada" {...register("difficulty")} defaultChecked={habit.difficulty === "Moderada" ? "defaultChecked" : false} />
                         <label htmlFor="dificultMedium">Moderada</label>
                     </div>
                     <div className="divRadio">
-                        <input className="radio" type="radio" id="dificultHard" name="dificult" value="Difícil" {...register("difficulty")} />
+                        <input className="radio" type="radio" id="dificultHard" name="dificult" value="Difícil" {...register("difficulty")} defaultChecked={habit.difficulty === "Difícil" ? "defaultChecked" : false} />
                         <label htmlFor="dificultHard">Difícil</label>
                     </div>
                 </fieldset>
                 <fieldset className="fildfrequency" >
                     <legend>Frequência</legend>
                     <div className="divRadio">
-                        <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Diária" {...register("frequency")} />
+                        <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Diária" {...register("frequency")} defaultChecked={habit.frequency === "Diária" ? "defaultChecked" : false} />
                         <label htmlFor="frequencyDaily">Diária</label>
                     </div>
                     <div className="divRadio">
-                        <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Semanal"  {...register("frequency")} />
+                        <input className="radio" type="radio" id="frequencyWeekly" name="frequency" value="Semanal"  {...register("frequency")} defaultChecked={habit.frequency === "Semanal" ? "defaultChecked" : false} />
                         <label htmlFor="frequencyWeekly">Semanal</label>
                     </div>
                     <div className="divRadio">
-                        <input className="radio" type="radio" id="frequencyMonthly" name="frequency" value="Mensal" {...register("frequency")} />
+                        <input className="radio" type="radio" id="frequencyMonthly" name="frequency" value="Mensal" {...register("frequency")} defaultChecked={habit.frequency === "Mensal" ? "defaultChecked" : false} />
                         <label htmlFor="frequencyMonthly">Mensal</label>
                     </div>
                 </fieldset>
 
                 <Button type="submit">Editar hábito</Button>
+
             </form>
+            <Button onClick={() => { deleteHabit(habit.id) }} >Deletar hábito</Button>
         </Container>
     )
 

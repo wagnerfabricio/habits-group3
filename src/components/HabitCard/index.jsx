@@ -11,14 +11,20 @@ import {
 import { IoAddCircleOutline } from "react-icons/io5";
 import { TiMediaFastForwardOutline } from "react-icons/ti";
 import { useHabits } from "../../providers/habits";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useGroups } from "../../providers/groups";
+import { Modal, Box } from "@mui/material";
+import EditHabitModal from "../Modal/editHabit";
 
 const HabitCard = ({ habit, group = false }) => {
   const { id, title, category, difficulty, how_much_achieved } = habit;
   const { editGroupGoal } = useGroups();
 
   const { editHabit } = useHabits();
+
+  const [openEditHabit, setOpenEditHabit] = useState(false);
+  const handleOpenEditHabit = () => setOpenEditHabit(true);
+  const handleCloseEditHabit = () => setOpenEditHabit(false);
 
   const handleIncreaseAchievement = () => {
     if (group) {
@@ -35,29 +41,39 @@ const HabitCard = ({ habit, group = false }) => {
       ? `${title.split(" ").slice(0, 6).join(" ")}...`
       : title;
 
-  useEffect(() => {}, [editHabit, editGroupGoal]);
+  useEffect(() => { }, [editHabit, editGroupGoal]);
 
   return (
-    <Container difficulty={difficulty}>
-      <IncreaseButton onClick={handleIncreaseAchievement}>
-        <IoAddCircleOutline />
-      </IncreaseButton>
-      <Content onClick={() => console.log("clicou!")}>
-        <div>
-          <h3>{newTitle}</h3>
-          <CategoryBox>Categoria: {category}</CategoryBox>
-        </div>
-        <div>
-          <Level>{difficulty}</Level>
-        </div>
-        <ColumnBox>
-          {group && "Grupo"}
-          <Counter>
-            <TiMediaFastForwardOutline /> {how_much_achieved}
-          </Counter>
-        </ColumnBox>
-      </Content>
-    </Container>
+    <>
+      <Container difficulty={difficulty}>
+        <IncreaseButton onClick={handleIncreaseAchievement}>
+          <IoAddCircleOutline />
+        </IncreaseButton>
+        <Content onClick={handleOpenEditHabit}>
+          <div>
+            <h3>{newTitle}</h3>
+            <CategoryBox>Categoria: {category}</CategoryBox>
+          </div>
+          <div>
+            <Level>{difficulty}</Level>
+          </div>
+          <ColumnBox>
+            {group && "Grupo"}
+            <Counter>
+              <TiMediaFastForwardOutline /> {how_much_achieved}
+            </Counter>
+          </ColumnBox>
+        </Content>
+      </Container>
+      <Modal
+        open={openEditHabit}
+        onClose={handleOpenEditHabit}
+      >
+        <Box>
+          <EditHabitModal handleCloseEditHabit={handleCloseEditHabit} habit={habit} />
+        </Box>
+      </Modal>
+    </>
   );
 };
 

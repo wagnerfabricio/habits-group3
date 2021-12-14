@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 500px;
   width: 400px;
-  background-color: #541da8;
+  background-color: #41148f;
   display: flex;
   flex-direction: column;
   margin: 20vh auto;
@@ -20,7 +20,7 @@ export const Container = styled.div`
   }
   .headder {
     display: flex;
-    margin: 0 0 30px 0;
+    margin: 0 0 10px 0;
   }
   .headder button {
     display: flex;
@@ -36,7 +36,7 @@ export const Container = styled.div`
     font-size: 18px;
     font-weight: bold;
     position: absolute;
-    margin: 10px 0 0 280px;
+    margin: 15px 0 0 255px;
   }
   h2 {
     margin: 40px auto 0 auto;
@@ -79,6 +79,7 @@ export const Container = styled.div`
     margin: 15px 0 5px 0;
   }
   button {
-    margin-top: 50px;
+    margin-top: 15px;
+    font-size: 18px;
   }
 `;
