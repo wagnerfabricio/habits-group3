@@ -12,7 +12,6 @@ const Login = () => {
     username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
-
       .min(6, "Mínimo de 6 dígitos")
       .required("Campo obrigatório"),
   });
