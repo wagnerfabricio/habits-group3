@@ -7,16 +7,19 @@ export const Container = styled.div`
   background-color: #1c294b;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
-  border: 2px solid #1c294b;
+  border: 3px solid #1c294b;
 
   &:hover {
     background-color: #ffffff;
     color: #1c294b;
     cursor: pointer;
-    border: solid 2px #1c294b;
+    border: solid 3px #1c294b;
+  }
+  svg {
+    margin: 0 auto;
   }
 `;
