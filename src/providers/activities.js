@@ -2,22 +2,21 @@ import { createContext, useContext, useState } from "react";
 import { api } from "../services/api";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
-
+import { useUser } from "./user";
 
 export const ActivitiesContext = createContext();
 
 export const ActivitiesProvider = ({ children }) => {
   const [activities, setActivities] = useState([]);
 
-  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5NDkzOTQ5LCJqdGkiOiIzM2IyZGU2MTk0YmY0MDJlOGQ5YTE3NzhiY2ZhYzk3MCIsInVzZXJfaWQiOjExMn0.3eS4VDWWeU4QWlaJiZnsA4_DhS9Ic4rZs6aRM8hzJms'
+    const { userData } = useUser();
 
     const addActivity = (data) => {
-    
     setActivities(data)
     api
     .post("/activities/", data, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${userData.token}`,
         },
       })
     .then(async (response) => {
@@ -26,38 +25,34 @@ export const ActivitiesProvider = ({ children }) => {
     .catch((error) => toast.error("Erro ao criar uma atividade"));
 };
 
-    const updateActivity = (data) => {
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5NDkzOTQ5LCJqdGkiOiIzM2IyZGU2MTk0YmY0MDJlOGQ5YTE3NzhiY2ZhYzk3MCIsInVzZXJfaWQiOjExMn0.3eS4VDWWeU4QWlaJiZnsA4_DhS9Ic4rZs6aRM8hzJms'
-
-        console.log(data)
+    const updateActivity = (id, data) => {
+      console.log(id)
         api
-        .patch("/activities/17/", data, {
+        .patch(`/activities/${id}/`, data, {
             headers: {
-            Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${userData.token}`,
             },
         })
         .then(async (response) => {
         console.log(response)
-        toast.success('deu certo');
+        toast.success('Atividade atualizada com sucesso');
         })
-        .catch((error) => toast.error("Erro ao buscar este grupo"));
+        .catch((error) => toast.error("Erro ao atualizar esta atividade. Lembre-se que você precisa estar no grupo passado."));
 }
   
-    const deleteActivity = () => {
-
-        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5NDkzOTQ5LCJqdGkiOiIzM2IyZGU2MTk0YmY0MDJlOGQ5YTE3NzhiY2ZhYzk3MCIsInVzZXJfaWQiOjExMn0.3eS4VDWWeU4QWlaJiZnsA4_DhS9Ic4rZs6aRM8hzJms'
-
+    const deleteActivity = (id) => {
+      console.log(id)
         api
-        .delete("/activities/18/", {
+        .delete(`/activities/${id}/`, {
             headers: {
-            Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${userData.token}`,
             },
         })
         .then(async (response) => {
-        console.log(response)
-        toast.success('deu certo');
+        toast.success('Atividade removida com sucesso!');
+
         })
-        .catch((error) => toast.error("Erro ao deletar este grupo"));
+        .catch((error) => toast.error("Erro ao remover esta atividade"));
     }
 
   return (
