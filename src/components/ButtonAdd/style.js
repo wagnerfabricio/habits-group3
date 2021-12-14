@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   border: 2px solid #1c294b;
 
