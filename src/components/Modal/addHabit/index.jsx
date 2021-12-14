@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Container } from "./style";
 import { useUser } from "../../../providers/user";
-import { useHabits } from "../../../providers/habits.js"
+import { useHabits } from "../../../providers/habits.js";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup"
-import Button from '../../Button/index'
+import { yupResolver } from "@hookform/resolvers/yup";
+import Button from '../../Button/index';
 import { toast } from "react-toastify";
+import { FiX } from "react-icons/fi";
 
 
 
@@ -63,7 +64,7 @@ const AddHabitModal = ({ handleCloseAddHabit }) => {
         <Container>
             <div className="headder">
                 <h2>Adicionar hábito</h2>
-                <button onClick={() => { handleCloseAddHabit() }}>X</button>
+                <button onClick={() => { handleCloseAddHabit() }}><FiX></FiX></button>
             </div>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
 
