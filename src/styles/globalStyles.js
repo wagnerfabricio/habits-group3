@@ -9,7 +9,11 @@ const GlobalStyle = createGlobalStyle`
 }
 
 :root {
-    //Variáveis
+    //Colors Variables
+
+    --color-grey-10: #EAEAEA;
+    --color-purple: #541DA8;
+    --color-magenta: #A72C8E;
 }
 
 body {
