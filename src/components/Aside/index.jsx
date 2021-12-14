@@ -1,65 +1,77 @@
-import { Container, UpperSection, LowerSection, PieChart } from "./styles";
+import { useHabits } from "../../providers/habits";
+import { useUserGroups } from "../../providers/userGroups";
+import {
+  Container,
+  UpperSection,
+  LowerSection,
+  Cards,
+  CardsContainer,
+  Avatar,
+  StatsActivities,
+  StatsGoals,
+  StatsHabits,
+  StatsGroups,
+  StatsContainer,
+} from "./styles";
+import { Chart } from "react-google-charts";
 
 const Aside = () => {
+  const { userHabits } = useHabits();
+  const { userGroups } = useUserGroups();
+
   return (
     <Container>
       <UpperSection>
         <div>
-          <div>
+          <Avatar>
             <figure>
               <img src="" alt="" />
             </figure>
-          </div>
+          </Avatar>
           <h2>Kenzinho</h2>
         </div>
 
-        <div>
-          <div>
-            <figure>
-              <img src="" alt="" />
-            </figure>
-          </div>
-          <div>
-          <figure>
-              <img src="" alt="" />
-            </figure>
-          </div>
-          <div>
-          <figure>
-              <img src="" alt="" />
-            </figure>
-          </div>
-          <div>
-          <figure>
-              <img src="" alt="" />
-            </figure>
-          </div>
-        </div>
+        <CardsContainer>
+          <Cards></Cards>
+          <Cards></Cards>
+          <Cards></Cards>
+          <Cards></Cards>
+        </CardsContainer>
       </UpperSection>
 
       <LowerSection>
-        <div>
-          <div>
+        <StatsContainer>
+          <StatsActivities>
             <span>12</span>
-            <p>Atividades</p>
-          </div>
-          <div>
-            <span>06</span>
+            <p>Atividades </p>
+          </StatsActivities>
+          <StatsGroups>
+            <span>{userGroups.length}</span>
             <p>Grupos</p>
-          </div>
-          <div>
-            <span>08</span>
+          </StatsGroups>
+          <StatsHabits>
+            <span>{userHabits.length}</span>
             <p>Hábitos</p>
-          </div>
-        </div>
-
-        <div>
-          <div>
+          </StatsHabits>
+          <StatsGoals>
             <span>04</span>
             <p>Goals</p>
-          </div>
-          <PieChart></PieChart>
-        </div>
+          </StatsGoals>
+        </StatsContainer>
+        <Chart
+          width={"500px"}
+          height={"300px"}
+          chartType="PieChart"
+          loader={<div>Loading Chart</div>}
+          data={[
+            ["Task", "Quant"],
+            ["Hábitos", userHabits.length],
+            ["Goals", 2],
+            ["Grupos", userGroups.length],
+            ["Atividades", 2],
+          ]}
+          rootProps={{ "data-testid": "1" }}
+        />
       </LowerSection>
     </Container>
   );
