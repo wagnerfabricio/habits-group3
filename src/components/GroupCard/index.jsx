@@ -36,54 +36,54 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
           <Content>
             <Tooltip title="Usuários" arrow>
               <div>
-              <IconButton
-                onClick={handleOpenShowGroupUsersModal}
-                disabled={disable}
+                <IconButton
+                  onClick={handleOpenShowGroupUsersModal}
+                  disabled={disable}
                 >
-                <Badge badgeContent={users_on_group.length} color="warning">
-                  <HiOutlineUserGroup />
-                </Badge>
-              </IconButton>
-                </div>
+                  <Badge badgeContent={users_on_group.length} color="warning">
+                    <HiOutlineUserGroup />
+                  </Badge>
+                </IconButton>
+              </div>
             </Tooltip>
 
             <Tooltip title="Eventos" arrow>
               <div>
-              <IconButton
-                onClick={handleOpenShowEventsModal}
-                disabled={disable}
+                <IconButton
+                  onClick={handleOpenShowEventsModal}
+                  disabled={disable}
                 >
-                <Badge badgeContent={activities.length} color="warning">
-                  <BsCalendarEvent />
-                </Badge>
-              </IconButton>
-                </div>
+                  <Badge badgeContent={activities.length} color="warning">
+                    <BsCalendarEvent />
+                  </Badge>
+                </IconButton>
+              </div>
             </Tooltip>
 
             <Tooltip title="Goals" arrow>
               <div>
-              <IconButton onClick={handleOpenShowGoalsModal} disabled={disable}>
-                <Badge badgeContent={goals.length} color="warning">
-                  <BsClipboardData />
-                </Badge>
-              </IconButton>
+                <IconButton onClick={handleOpenShowGoalsModal} disabled={disable}>
+                  <Badge badgeContent={goals.length} color="warning">
+                    <BsClipboardData />
+                  </Badge>
+                </IconButton>
               </div>
             </Tooltip>
             {userGroups && (
               <Tooltip title="Sair do Grupo" arrow>
                 <div>
-                <IconButton onClick={() => unsubscribeFromGroup(id)}>
-                  <GiEntryDoor />
-                </IconButton>
+                  <IconButton onClick={() => unsubscribeFromGroup(id)}>
+                    <GiEntryDoor />
+                  </IconButton>
                 </div>
               </Tooltip>
             )}
             {!userGroups && (
               <Tooltip title="Entrar no Grupo" arrow>
                 <div>
-                <IconButton onClick={() => subscribeToGroup(id)}>
-                  <GiExitDoor />
-                </IconButton>
+                  <IconButton onClick={() => subscribeToGroup(id)}>
+                    <GiExitDoor />
+                  </IconButton>
                 </div>
               </Tooltip>
             )}
@@ -115,6 +115,7 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
         <Box>
           <ShowGroupInfoCard
             info={goals}
+            groupId={id}
             groupName={name}
             goals
             handleClose={handleCloseShowGoalsModal}

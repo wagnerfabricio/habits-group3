@@ -8,19 +8,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Button from '../../Button/index';
 import { toast } from "react-toastify";
 import { FiX } from "react-icons/fi";
+import { useGroups } from "../../../providers/groups";
 
 
 
-const AddGoalModal = ({ handleCloseAddGoal, group }) => {
+const AddGoalModal = ({ handleCloseAddGoalModal, groupId }) => {
 
     const { userData } = useUser()
-    const { createHabit } = useHabits()
+    const { newGroupGoal } = useGroups()
 
     const formSchema = yup.object().shape({
         title: yup.string().required("Informe o título"),
-        category: yup.string().required("Informe a categoria"),
+
         difficulty: yup.string().required("qual a dificuldade?"),
-        frequency: yup.string().required("qual a frequência?"),
+
 
     })
 
@@ -30,8 +31,6 @@ const AddGoalModal = ({ handleCloseAddGoal, group }) => {
         }
     )
 
-
-
     const onSubmitFunction = (infos) => {
 
 
@@ -40,10 +39,10 @@ const AddGoalModal = ({ handleCloseAddGoal, group }) => {
             "difficulty": infos.difficulty,
             "achieved": false,
             "how_much_achieved": 0,
-            "group": group.id,
+            "group": groupId,
         }
-        createHabit(data);
-        handleCloseAddGoal()
+        newGroupGoal(data);
+        handleCloseAddGoalModal()
     }
     useEffect(() => {
         if (Object.keys(errors).length > 0) {
@@ -53,16 +52,11 @@ const AddGoalModal = ({ handleCloseAddGoal, group }) => {
 
     }, [errors])
 
-
-
-
-
-
     return (
         <Container>
             <div className="headder">
                 <h2>Adicionar Meta</h2>
-                <button onClick={() => { handleCloseAddGoal() }}><FiX></FiX></button>
+                <button onClick={() => { handleCloseAddGoalModal() }}><FiX></FiX></button>
             </div>
             <form onSubmit={handleSubmit(onSubmitFunction)}>
 
