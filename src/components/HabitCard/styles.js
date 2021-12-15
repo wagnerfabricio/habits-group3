@@ -14,7 +14,7 @@ export const Container = styled.div`
   border-radius: 10px;
   box-sizing: border-box;
   border-right: 1px solid transparent;
-  
+
   svg {
     font-size: 2.3rem;
     color: #541da8;
@@ -62,7 +62,7 @@ export const CategoryBox = styled.p`
 export const Level = styled.p`
   margin: 0 auto;
   text-align: center;
-  width: 65px;
+  width: 80px;
   padding: 10px;
   background: #ffffff;
   border-radius: 10px;
