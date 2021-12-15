@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useUser } from "../../providers/user";
+import SignUpImage from "../../assets/images/login-image.svg";
 
 const Login = () => {
   const schema = yup.object().shape({
@@ -34,7 +35,7 @@ const Login = () => {
   return (
     <Container>
       <Content>
-        <AnimationContainer className='form-father'>
+        <AnimationContainer>
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Login</h1>
             <Input
@@ -59,6 +60,9 @@ const Login = () => {
               Caso ainda não tenha um cadastro <Link to="/signup">clique aqui</Link> para fazer o seu cadastro.
             </p>
           </form>
+          <div>
+            <img src={SignUpImage} alt="" />
+          </div>
         </AnimationContainer>
       </Content>
       <Background />

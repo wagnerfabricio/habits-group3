@@ -40,4 +40,8 @@ export const InputContainer = styled.div`
   svg {
     margin-right: 1rem;
   }
+
+  @media (max-width: 500px) {
+    width: 60vw;
+  }
 `;
