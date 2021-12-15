@@ -29,8 +29,8 @@ a {
 }
 
 
-/* gradiente background: rgb(149,51,191); */
-/* background: linear-gradient(0deg, rgba(149,51,191,1) 35%, rgba(81,30,165,1) 100%); */
+/* gradiente background: rgb(149,51,191);
+background: linear-gradient(0deg, rgba(149,51,191,1) 35%, rgba(81,30,165,1) 100%); */
 `;
 
 export default GlobalStyle;

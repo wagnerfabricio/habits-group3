@@ -3,20 +3,28 @@ import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsCalendarEvent, BsClipboardData } from "react-icons/bs";
 import { Badge, IconButton, Modal, Tooltip } from "@mui/material";
 import { GiExitDoor, GiEntryDoor } from "react-icons/gi";
+import { BiEdit } from "react-icons/bi";
 import { useUserGroups } from "../../providers/userGroups";
 import { Box } from "@mui/system";
 import ShowGroupInfoCard from "../Modal/ShowGroupInfoCard";
 import { useState } from "react";
+import EditGroupModal from "../Modal/editGroup";
+import { useUser } from "../../providers/user";
 
 const GroupCard = ({ group, userGroups = false, disable = false }) => {
   const { id, name, category, users_on_group, activities, goals, description } =
     group;
   const { subscribeToGroup, unsubscribeFromGroup } = useUserGroups();
+  const {userData} = useUser();
+
 
   //Modal show Goals
   const [openShowGoals, setOpenShowGoals] = useState(false);
   const handleOpenShowGoalsModal = () => setOpenShowGoals(true);
   const handleCloseShowGoalsModal = () => setOpenShowGoals(false);
+
+  console.log(group.creator.id)
+  console.log("user id", userData.user.id)
 
   //Modal show users on group
   const [openShowGroupUsers, setOpenShowGroupUsers] = useState(false);
@@ -27,6 +35,11 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
   const [openShowEvents, setOpenShowEvents] = useState(false);
   const handleOpenShowEventsModal = () => setOpenShowEvents(true);
   const handleCloseShowEventsModal = () => setOpenShowEvents(false);
+
+  //Modal edit group
+  const [openEditGroup, setOpenEditGroup] = useState(false);
+  const handleOpenEditGroupModal = () => setOpenEditGroup(true);
+  const handleCloseEditGroupModal = () => setOpenEditGroup(false);
 
   return (
     <>
@@ -62,7 +75,10 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
 
             <Tooltip title="Goals" arrow>
               <div>
-                <IconButton onClick={handleOpenShowGoalsModal} disabled={disable}>
+                <IconButton
+                  onClick={handleOpenShowGoalsModal}
+                  disabled={disable}
+                >
                   <Badge badgeContent={goals.length} color="warning">
                     <BsClipboardData />
                   </Badge>
@@ -91,12 +107,25 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
         </header>
         <hr />
         <FlexColumn>
-          <p>
-            <span>Descrição:</span>{description}
-          </p>
-          <p>
-            <span>Categoria:</span>{category}
-          </p>
+          <div>
+            <p>
+              <span>Descrição:</span>
+              {description}
+            </p>
+            <p>
+              <span>Categoria:</span>
+              {category}
+            </p>
+          </div>
+          {group.creator.id === userData.user.id && (
+            <Tooltip title="Editar grupo" arrow>
+              <div>
+                <IconButton onClick={handleOpenEditGroupModal}>
+                  <BiEdit />
+                </IconButton>
+              </div>
+            </Tooltip>
+          )}
         </FlexColumn>
       </Container>
 
@@ -131,6 +160,16 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
             group={group}
             activities
             handleClose={handleCloseShowEventsModal}
+          />
+        </Box>
+      </Modal>
+
+      {/* modal de editar grupo */}
+      <Modal open={openEditGroup} onClose={handleOpenEditGroupModal}>
+        <Box>
+          <EditGroupModal
+            group={group}
+            handleClose={handleCloseEditGroupModal}
           />
         </Box>
       </Modal>

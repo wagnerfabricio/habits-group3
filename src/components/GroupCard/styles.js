@@ -30,7 +30,8 @@ export const Content = styled.div`
 
 export const FlexColumn = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+
   span {
     font-weight: bold;
     margin-right: 5px;
