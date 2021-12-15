@@ -8,7 +8,8 @@ import { toast } from "react-toastify";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { Link, useHistory } from "react-router-dom";
-
+import { FiLock, FiMail, FiUser } from "react-icons/fi";
+import SignUpImage from "../../assets/images/cadastre-se.svg";
 
 function SignUp() {
   const schema = yup.object().shape({
@@ -55,6 +56,7 @@ function SignUp() {
           <form onSubmit={handleSubmit(onSubmitFuncion)}>
             <h2>Cadastre-se</h2>
             <Input
+              icon={FiUser}
               register={register}
               label="Nome"
               placeholder={"Nome"}
@@ -62,6 +64,7 @@ function SignUp() {
               error={errors.username?.message}
             ></Input>
             <Input
+              icon={FiMail}
               register={register}
               label="Email"
               placeholder={"Email"}
@@ -69,6 +72,7 @@ function SignUp() {
               error={errors.email?.message}
             ></Input>
             <Input
+              icon={FiLock}
               name="password"
               register={register}
               label="Senha"
@@ -77,6 +81,7 @@ function SignUp() {
               error={errors.password?.message}
             ></Input>
             <Input
+              icon={FiLock}
               name="passwordConfirm"
               register={register}
               label="Confirmar Senha"
@@ -93,6 +98,9 @@ function SignUp() {
               para fazer o seu login!
             </p>
           </form>
+          <div>
+            <img src={SignUpImage} alt="" />
+          </div>
         </AnimationContainer>
       </Content>
       </Container>
