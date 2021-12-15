@@ -12,6 +12,7 @@ const Login = () => {
     username: yup.string().required("Campo obrigatório!"),
     password: yup
       .string()
+
       .min(6, "Mínimo de 6 dígitos")
       .required("Campo obrigatório"),
   });
@@ -27,7 +28,8 @@ const Login = () => {
   const { login } = useUser();
 
   const onSubmit = (data) => {
-    login(data, "/");
+    login(data);
+    history.push('/dashboard');
   };
 
   return (
