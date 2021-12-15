@@ -23,9 +23,6 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
   const handleOpenShowGoalsModal = () => setOpenShowGoals(true);
   const handleCloseShowGoalsModal = () => setOpenShowGoals(false);
 
-  console.log(group.creator.id)
-  console.log("user id", userData.user.id)
-
   //Modal show users on group
   const [openShowGroupUsers, setOpenShowGroupUsers] = useState(false);
   const handleOpenShowGroupUsersModal = () => setOpenShowGroupUsers(true);
