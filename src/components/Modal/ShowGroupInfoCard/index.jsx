@@ -29,7 +29,9 @@ const ShowGroupInfoCard = ({
     goals &&
     info
       .sort((a, b) => a.id - b.id)
-      .map((goal) => <HabitCard habit={goal} group={true} key={goal.id} />);
+      .map((goal) => (
+        <HabitCard habit={goal} group={true} key={goal.id} goal={true} />
+      ));
 
   const showEvents =
     activities &&
@@ -44,7 +46,7 @@ const ShowGroupInfoCard = ({
   const handleOpenAddGoalModal = () => setOpenAddGoalModal(true);
   const handleCloseAddGoalModal = () => setOpenAddGoalModal(false);
 
-  useEffect(() => { }, [activities]);
+  useEffect(() => {}, [activities]);
 
   return (
     <>
@@ -73,7 +75,10 @@ const ShowGroupInfoCard = ({
       </Container>
       <Modal open={openAddGoalModal} onClose={handleOpenAddGoalModal}>
         <Box>
-          <AddGoalModal handleCloseAddGoalModal={handleCloseAddGoalModal} groupId={groupId} />
+          <AddGoalModal
+            handleCloseAddGoalModal={handleCloseAddGoalModal}
+            groupId={groupId}
+          />
         </Box>
       </Modal>
     </>
