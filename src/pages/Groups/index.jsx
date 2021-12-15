@@ -1,8 +1,7 @@
 import { ButtonAdd } from "../../components/ButtonAdd";
-import { Modal, Box, Button, IconButton, Tooltip } from "@mui/material";
-import AddHabitModal from "../../components/Modal/addHabit";
+import { Modal, Box, IconButton, Tooltip } from "@mui/material";
 import AddGroupModal from "../../components/Modal/addGroup";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Container,
   Content,
@@ -16,7 +15,6 @@ import { useUserGroups } from "../../providers/userGroups";
 import GroupCard from "../../components/GroupCard";
 import { useGroups } from "../../providers/groups";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
-import Aside from "../../components/Aside";
 
 const Groups = () => {
   // const [searchUserGroup, setSearchUserGroup] = useState("");
@@ -24,6 +22,22 @@ const Groups = () => {
   const [useFilterGroups, setUseFilterGroups] = useState(false);
 
   const { userGroups } = useUserGroups();
+
+  const groupsTitle = useRef();
+  const scrollToTopGroups = () => {
+    groupsTitle.current.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("groupList").scroll({ top: 0, behavior: "smooth" });
+  };
+
+  const userGroupsTitle = useRef();
+
+  const scrollToTopUserGroups = () => {
+    userGroupsTitle.current.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("userGroupsList")
+      .scroll({ top: 0, behavior: "smooth" });
+  };
+
   const filterUserGroups =
     useFilterGroups &&
     userGroups.filter((group) =>
@@ -89,19 +103,9 @@ const Groups = () => {
         </header>
         <hr />
         <Content>
-          <ListBox>
+          <ListBox ref={userGroupsTitle} id="userGroupsList">
             <header>
               <h3>Seus Grupos</h3>
-              {/* <input
-                type="text"
-                placeholder="Buscar um grupo"
-                value={searchUserGroup}
-                onFocus={(e) => e.target.select()}
-                onChange={(e) => setSearchUserGroup(e.target.value)}
-              />
-              <button>
-                <ImSearch />
-              </button> */}
             </header>
             <UserGroupList>
               {filterUserGroups.length === 0 ? (
@@ -109,26 +113,49 @@ const Groups = () => {
               ) : (
                 showUserGroups
               )}
+              <PageControl>
+                <Tooltip title="Voltar para o topo" arrow>
+                  <IconButton
+                    onClick={() => {
+                      scrollToTopUserGroups();
+                    }}
+                  >
+                    <BsArrowRightCircle
+                      style={{ transform: "rotate(-90deg)" }}
+                    />
+                  </IconButton>
+                </Tooltip>
+              </PageControl>
             </UserGroupList>
           </ListBox>
-          <ListBox className="groups">
+          <ListBox className="groups" ref={groupsTitle} id="groupList">
             <header>
               <h3>Grupos indicados:</h3>
             </header>
             <UserGroupList>
-            {filterUserGroups.length === 0 ? (
+              {filterUserGroups.length === 0 ? (
                 <h3>Não foi encontrado nenhum grupo com essa descrição</h3>
               ) : (
                 showGroups
               )}
               <PageControl>
                 <Tooltip title="Página Anterior" arrow>
-                  <IconButton onClick={() => changeGroupPage(-1)}>
+                  <IconButton
+                    onClick={() => {
+                      changeGroupPage(-1);
+                      scrollToTopGroups();
+                    }}
+                  >
                     <BsArrowLeftCircle />
                   </IconButton>
                 </Tooltip>
                 <Tooltip title="Próxima página" arrow>
-                  <IconButton onClick={() => changeGroupPage(1)}>
+                  <IconButton
+                    onClick={() => {
+                      changeGroupPage(1);
+                      scrollToTopGroups();
+                    }}
+                  >
                     <BsArrowRightCircle />
                   </IconButton>
                 </Tooltip>

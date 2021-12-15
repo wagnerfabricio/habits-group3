@@ -29,7 +29,6 @@ export const ActivitiesProvider = ({ children }) => {
   };
 
   const updateActivity = (id, data) => {
-    console.log(id);
     api
       .patch(`/activities/${id}/`, data, {
         headers: {
@@ -37,7 +36,6 @@ export const ActivitiesProvider = ({ children }) => {
         },
       })
       .then(async (response) => {
-        console.log(response);
         userGroupsSubscriptions();
         toast.success("Atividade atualizada com sucesso");
       })
@@ -49,7 +47,6 @@ export const ActivitiesProvider = ({ children }) => {
   };
 
   const deleteActivity = (id) => {
-    console.log(id);
     api
       .delete(`/activities/${id}/`, {
         headers: {

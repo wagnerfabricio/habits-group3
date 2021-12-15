@@ -3,7 +3,6 @@ import {
   Content,
   ColumnBox,
   Counter,
-  EditButton,
   IncreaseButton,
   Level,
   Container,
