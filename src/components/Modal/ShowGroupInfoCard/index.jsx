@@ -6,9 +6,11 @@ import ActivitiesCard from "../../ActivitiesCard";
 import { useEffect, useState } from "react";
 import { Box, Modal, Tooltip } from "@mui/material";
 import AddHabitModal from "../addHabit";
+import AddGoalModal from "../addGoal";
 
 const ShowGroupInfoCard = ({
   groupName,
+  groupId,
   info,
   users = false,
   goals = false,
@@ -38,11 +40,11 @@ const ShowGroupInfoCard = ({
     });
 
   //Modal add group goal
-  const [openAddHabit, setOpenAddHabit] = useState(false);
-  const handleOpenAddHabit = () => setOpenAddHabit(true);
-  const handleCloseAddHabit = () => setOpenAddHabit(false);
+  const [openAddGoalModal, setOpenAddGoalModal] = useState(false);
+  const handleOpenAddGoalModal = () => setOpenAddGoalModal(true);
+  const handleCloseAddGoalModal = () => setOpenAddGoalModal(false);
 
-  useEffect(() => {}, [activities]);
+  useEffect(() => { }, [activities]);
 
   return (
     <>
@@ -52,7 +54,7 @@ const ShowGroupInfoCard = ({
           <div>
             {goals && (
               <Tooltip title="Adicionar" arrow>
-                <button onClick={handleOpenAddHabit}>
+                <button onClick={handleOpenAddGoalModal}>
                   <IoMdAddCircleOutline />
                 </button>
               </Tooltip>
@@ -69,9 +71,9 @@ const ShowGroupInfoCard = ({
         <ul>{goals && showGoals}</ul>
         <ul>{activities && showEvents}</ul>
       </Container>
-      <Modal open={openAddHabit} onClose={handleOpenAddHabit}>
+      <Modal open={openAddGoalModal} onClose={handleOpenAddGoalModal}>
         <Box>
-          <AddHabitModal handleCloseAddHabit={handleCloseAddHabit} />
+          <AddGoalModal handleCloseAddGoalModal={handleCloseAddGoalModal} groupId={groupId} />
         </Box>
       </Modal>
     </>
