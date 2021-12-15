@@ -4,71 +4,98 @@ import {
   Container,
   UpperSection,
   LowerSection,
-  Cards,
   CardsContainer,
-  Avatar,
-  StatsActivities,
-  StatsGoals,
-  StatsHabits,
-  StatsGroups,
+  Stats,
   StatsContainer,
+  UserContainer,
+  UserContent,
+  CardButton,
 } from "./styles";
 import { Chart } from "react-google-charts";
+import { useUser } from "../../providers/user";
+import Avatar from "@mui/material/Avatar";
+import { deepOrange } from "@mui/material/colors";
+import groupsSVG from "../../assets/images/groups.svg";
+import habitsSVG from "../../assets/images/habit.svg";
+import { useHistory } from "react-router-dom";
 
 const Aside = () => {
   const { userHabits } = useHabits();
   const { userGroups } = useUserGroups();
+  const { userData } = useUser();
+  const { username, email } = userData.user;
+  const history = useHistory();
 
   return (
     <Container>
       <UpperSection>
-        <div>
-          <Avatar>
-            <figure>
-              <img src="" alt="" />
-            </figure>
+        <UserContainer>
+          <Avatar
+            sx={{
+              bgcolor: deepOrange[500],
+              width: 100,
+              height: 100,
+              fontSize: 50,
+            }}
+          >
+            {username.slice(0, 1).toUpperCase()}
           </Avatar>
-          <h2>Kenzinho</h2>
-        </div>
+          <UserContent>
+            <h3>{username.toUpperCase()}</h3>
+            <p>{email}</p>
+          </UserContent>
+        </UserContainer>
 
         <CardsContainer>
-          <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
-          <Cards></Cards>
+          <CardButton onClick={() => history.push("/groups")}>
+            <h3>Grupos</h3>
+            <img
+              src={groupsSVG}
+              alt="Homem olhando para um quadro com vários cards"
+            />
+          </CardButton>
+
+          <CardButton onClick={() => history.push("/habits")}>
+            <h3>Hábitos</h3>
+            <img
+              src={habitsSVG}
+              alt="Mulher ao lado de um círculo com várias atividades"
+            />
+          </CardButton>
         </CardsContainer>
       </UpperSection>
 
       <LowerSection>
         <StatsContainer>
-          <StatsActivities>
+          <Stats>
             <span>12</span>
-            <p>Atividades </p>
-          </StatsActivities>
-          <StatsGroups>
+            <p>Eventos</p>
+          </Stats>
+          <Stats>
             <span>{userGroups.length}</span>
             <p>Grupos</p>
-          </StatsGroups>
-          <StatsHabits>
+          </Stats>
+          <Stats>
             <span>{userHabits.length}</span>
             <p>Hábitos</p>
-          </StatsHabits>
-          <StatsGoals>
+          </Stats>
+          <Stats>
             <span>04</span>
-            <p>Goals</p>
-          </StatsGoals>
+            <p>Metas</p>
+          </Stats>
         </StatsContainer>
         <Chart
-          width={"500px"}
-          height={"300px"}
+          width={"100%"}
+          height={"100%"}
+          max-heigth={"300px"}
           chartType="PieChart"
           loader={<div>Loading Chart</div>}
           data={[
             ["Task", "Quant"],
             ["Hábitos", userHabits.length],
-            ["Goals", 2],
+            ["Metas", 5],
             ["Grupos", userGroups.length],
-            ["Atividades", 2],
+            ["Eventos", 2],
           ]}
           rootProps={{ "data-testid": "1" }}
         />
