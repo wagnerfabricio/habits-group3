@@ -38,7 +38,7 @@ const Habits = () => {
     <Container>
       <Header>
         <FlexContainer>
-          <h1>Seus hábitos</h1>
+          <h1 onClick={() => setInputSearchHabit("")}>Seus hábitos</h1>
           <ButtonAdd onClick={handleOpenAddHabit} />
         </FlexContainer>
         <FlexContainer>
