@@ -15,17 +15,23 @@ import { useEffect, useState } from "react";
 import { useGroups } from "../../providers/groups";
 import { Modal, Box } from "@mui/material";
 import EditHabitModal from "../Modal/editHabit";
+import EditGoalModal from "../Modal/editGoal";
 
-const HabitCard = ({ habit, group = false }) => {
+const HabitCard = ({ habit, group = false, goal = false }) => {
   const { id, title, category, difficulty, how_much_achieved } = habit;
   const { editGroupGoal } = useGroups();
 
   const { editHabit } = useHabits();
 
+  //modal habit
   const [openEditHabit, setOpenEditHabit] = useState(false);
   const handleOpenEditHabit = () => setOpenEditHabit(true);
   const handleCloseEditHabit = () => setOpenEditHabit(false);
 
+  //modal goal
+  const [openEditGoal, setOpenEditGoal] = useState(false);
+  const handleOpenEditGoal = () => setOpenEditGoal(true);
+  const handleCloseEditGoal = () => setOpenEditGoal(false);
   const handleIncreaseAchievement = () => {
     if (group) {
       const increase = how_much_achieved + 1;
@@ -41,7 +47,7 @@ const HabitCard = ({ habit, group = false }) => {
       ? `${title.split(" ").slice(0, 6).join(" ")}...`
       : title;
 
-  useEffect(() => { }, [editHabit, editGroupGoal]);
+  useEffect(() => {}, [editHabit, editGroupGoal]);
 
   return (
     <>
@@ -49,7 +55,7 @@ const HabitCard = ({ habit, group = false }) => {
         <IncreaseButton onClick={handleIncreaseAchievement}>
           <IoAddCircleOutline />
         </IncreaseButton>
-        <Content onClick={handleOpenEditHabit}>
+        <Content onClick={!goal ? handleOpenEditHabit : handleOpenEditGoal}>
           <div>
             <h3>{newTitle}</h3>
             <CategoryBox>Categoria: {category}</CategoryBox>
@@ -65,14 +71,27 @@ const HabitCard = ({ habit, group = false }) => {
           </ColumnBox>
         </Content>
       </Container>
-      <Modal
-        open={openEditHabit}
-        onClose={handleOpenEditHabit}
-      >
-        <Box>
-          <EditHabitModal handleCloseEditHabit={handleCloseEditHabit} habit={habit} />
-        </Box>
-      </Modal>
+      {!goal && (
+        <Modal open={openEditHabit} onClose={handleOpenEditHabit}>
+          <Box>
+            <EditHabitModal
+              handleCloseEditHabit={handleCloseEditHabit}
+              habit={habit}
+            />
+          </Box>
+        </Modal>
+      )}
+
+      {goal && (
+        <Modal open={openEditGoal} onClose={handleOpenEditGoal}>
+          <Box>
+            <EditGoalModal
+              handleCloseEditGoal={handleCloseEditGoal}
+              habit={habit}
+            />
+          </Box>
+        </Modal>
+      )}
     </>
   );
 };
