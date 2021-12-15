@@ -11,7 +11,7 @@ export const GroupsProvider = ({ children }) => {
   const [groupPage, setGroupPage] = useState(1);
 
   const { userData } = useUser();
-  const {userGroupsSubscriptions} = useUserGroups();
+  const { userGroupsSubscriptions } = useUserGroups();
 
   const changeGroupPage = (value) => {
     //value could be 1 or -1 to change to the next or previus page
@@ -42,7 +42,10 @@ export const GroupsProvider = ({ children }) => {
           Authorization: `Bearer ${userData.token}`,
         },
       })
-      .then(toast.success("Grupo criado com sucesso"))
+      .then((_) => {
+        userGroupsSubscriptions();
+        toast.success("Grupo criado com sucesso");
+      })
       .catch((_) => toast.error("Grupo já existente"));
   };
 
@@ -53,8 +56,11 @@ export const GroupsProvider = ({ children }) => {
           Authorization: `Bearer ${userData.token}`,
         },
       })
-      .then((_) => toast.success("Grupo alterado com sucesso"))
-      .catch((_) => toast.error("Você não pode alterar este grupo"));
+      .then((_) => {
+        userGroupsSubscriptions();
+        toast.success("Grupo alterado com sucesso");
+      })
+      .catch((_) => toast.error("Somente o criador do grupo pode alterar"));
   };
 
   const newGroupGoal = (data) => {
@@ -65,7 +71,7 @@ export const GroupsProvider = ({ children }) => {
         },
       })
       .then((response) => {
-        userGroupsSubscriptions()
+        userGroupsSubscriptions();
         toast.success("Meta criada com sucesso");
       })
       .catch((_) => toast.error("Erro inesperado, tente mais tarde"));
@@ -79,23 +85,25 @@ export const GroupsProvider = ({ children }) => {
         },
       })
       .then((response) => {
-        userGroupsSubscriptions()
+        userGroupsSubscriptions();
         toast.success("Meta alterada com sucesso");
       })
       .catch((_) => toast.error("Essa meta não existe"));
   };
 
   const deleteGroupGoal = (goalId) => {
-    api.delete(`/goals/${goalId}/`, {
-      headers: {
-        Authorization: `Bearer ${userData.token}`,
-      },
-    }).then((_) => {
-      userGroupsSubscriptions()
-      toast.success("Meta excluída");
-    })
-    .catch((_) => toast.error("Essa meta não existe"));
-  }
+    api
+      .delete(`/goals/${goalId}/`, {
+        headers: {
+          Authorization: `Bearer ${userData.token}`,
+        },
+      })
+      .then((_) => {
+        userGroupsSubscriptions();
+        toast.success("Meta excluída");
+      })
+      .catch((_) => toast.error("Essa meta não existe"));
+  };
 
   useEffect(() => {
     api
