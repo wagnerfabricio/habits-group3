@@ -20,7 +20,7 @@ export const Container = styled.div`
   }
   .headder {
     display: flex;
-    margin: 0 0 30px 0;
+    margin: 0 0 10px 0;
   }
   .headder button {
     display: flex;
@@ -36,7 +36,7 @@ export const Container = styled.div`
     font-size: 18px;
     font-weight: bold;
     position: absolute;
-    margin: 10px 0 0 280px;
+    margin: 15px 0 0 255px;
   }
   h2 {
     margin: 40px auto 0 auto;
@@ -79,6 +79,7 @@ export const Container = styled.div`
     margin: 15px 0 5px 0;
   }
   button {
-    margin-top: 50px;
+    margin-top: 15px;
+    font-size: 18px;
   }
 `;

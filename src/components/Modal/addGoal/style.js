@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 500px;
-  width: 400px;
+  height: 390px;
+  width: 450px;
   background-color: #41148f;
   display: flex;
   flex-direction: column;
@@ -25,8 +25,8 @@ export const Container = styled.div`
   .headder button {
     display: flex;
     align-items: center;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     justify-content: center;
     border-radius: 100%;
     margin: 0;
@@ -36,7 +36,7 @@ export const Container = styled.div`
     font-size: 18px;
     font-weight: bold;
     position: absolute;
-    margin: 10px 0 0 280px;
+    margin: 10px 0 0 290px;
   }
   h2 {
     margin: 40px auto 0 auto;
