@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-
 import SignUpImage from '../../assets/images/login-image.svg'
 
 export const Container = styled.div`
@@ -11,7 +10,6 @@ export const Container = styled.div`
 export const Background = styled.div`
   @media (min-width: 1100px) {
     flex: 1;
-
     background: url(${SignUpImage}) no-repeat center, linear-gradient(pink, blue, purple);
     background-size: 40vw;
   }
@@ -33,7 +31,6 @@ export const Content = styled.div`
     height: 45px;
     border-radius: 0.5rem;
     border: 0;
-
     width: 100%;
     font-weight: 600;
     transition: 0.5s;
@@ -41,7 +38,6 @@ export const Content = styled.div`
     font-family: "Roboto Mono";
     margin-top: 1rem;
     :hover {
-
         border: 2px solid #c85311;
   }
   }
@@ -66,7 +62,7 @@ export const Content = styled.div`
 const appearFromRight = keyframes`
   from {
     opacity: 0;
-    transform: translateX(50px)
+    transform: translateX(-50px)
   }
   to {
     opacity: 1;
