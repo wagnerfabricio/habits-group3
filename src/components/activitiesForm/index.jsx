@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useActivities } from "../../providers/activities";
+import { Container, CloseModal } from './styles'
+import { FiXCircle } from "react-icons/fi";
 
-const ActivitiesForm = ({ isAddForm, activity, group }) => {
+const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
     realization_time: yup.string().required("Senha obrigatório"),
@@ -36,16 +38,9 @@ const ActivitiesForm = ({ isAddForm, activity, group }) => {
     <>
       {isAddForm ? (
         <Box
-          component="form"
-          sx={{
-            border: "1px solid #F5F5F5",
-            background: "#f5f5f5e2",
-            padding: "50px",
-            width: "300px",
-            height: "300px",
-          }}
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        component="form"
+        onSubmit={handleSubmit(onSubmitEdit)}>
+        <Container>
           <div>
             <TextField
               {...register("title")}
@@ -104,19 +99,27 @@ const ActivitiesForm = ({ isAddForm, activity, group }) => {
           >
             adicionar
           </Button>
+        </Container>
         </Box>
       ) : (
         <Box
           component="form"
-          sx={{
-            border: "1px solid #F5F5F5",
-            background: "#f5f5f5e2",
-            padding: "50px",
-            width: "300px",
-            height: "300px",
-          }}
-          onSubmit={handleSubmit(onSubmitEdit)}
+          onSubmit={handleSubmit(onSubmitEdit)}>
+        <Container
+          
+          // sx={{
+          //   border: "1px solid #F5F5F5",
+          //   background: "#f5f5f5e2",
+          //   padding: "50px",
+          //   width: "300px",
+          //   height: "300px",
+          // }}
         >
+           <CloseModal onClick={() => setOpen(false)}>
+              <FiXCircle />
+          </CloseModal>
+          <h2>Atualizar Evento</h2>
+         
           <div>
             <TextField
               {...register("title")}
@@ -131,20 +134,7 @@ const ActivitiesForm = ({ isAddForm, activity, group }) => {
               defaultValue={activity.title}
             ></TextField>
           </div>
-          <div>
-            <TextField
-              id="datetime-local"
-              label="Data e hora"
-              type="datetime-local"
-              format="dd-MM-yyyy"
-              defaultValue="2021-05-24T10:30"
-              sx={{ width: 250 }}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              {...register("realization_time")}
-            />
-          </div>
+          
           <div>
             <TextField
               {...register("group")}
@@ -158,6 +148,23 @@ const ActivitiesForm = ({ isAddForm, activity, group }) => {
               className="input-login"
               value={group.name}
             ></TextField>
+          </div>
+          <p>
+
+          </p>
+          <div>
+            <TextField
+              id="datetime-local"
+              label="Data e hora"
+              type="datetime-local"
+              format="dd-MM-yyyy"
+              defaultValue="2021-05-24T10:30"
+              sx={{ width: 250 }}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              {...register("realization_time")}
+            />
           </div>
 
           <Button
@@ -176,6 +183,7 @@ const ActivitiesForm = ({ isAddForm, activity, group }) => {
           >
             atualizar
           </Button>
+        </Container>
         </Box>
       )}
     </>
