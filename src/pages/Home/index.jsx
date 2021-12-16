@@ -38,6 +38,7 @@ const Home = () => {
                             <h2>Compartilhe seus objetivos</h2>
                         </div>
                     </div>
+                    <button onClick={() => { history.push("/signup") }} className="mobileRegister">Cadastre-se agora!</button>
                     <div className="home__top__second">
                         <div className="top__second__left">
                             <p>Já pensou em desenvolver um novo hábito na sua rotina? Estamos aqui para te auxiliar com os teus desafios e te ajudar a monitorar as suas práticas diárias.
@@ -52,30 +53,38 @@ const Home = () => {
                     </div>
 
                 </div>
+
+
                 <div className="home__bot">
                     <div className="home__bot__frist">
                         <div className="circles" id="aboutUs">
 
                             <img src={CircleImage01} alt="" />
                         </div>
-                        <h4>Saúde e condicionamento físico.</h4>
-                        <p>De um copo de água até execícios físicos de maior intensidade. Gerencie seus hábitos e torne seu dia mais saudável.</p>
+                        <div className="home__bot__texts">
+                            <h4>Saúde e condicionamento físico.</h4>
+                            <p>De um copo de água até execícios físicos de maior intensidade. Gerencie seus hábitos e torne seu dia mais saudável.</p>
+                        </div>
                     </div>
                     <div className="home__bot__mid">
                         <div className="circles">
 
                             <img src={CircleImage02} alt="" />
                         </div>
-                        <h4>Estudos e trabalhos.</h4>
-                        <p>Estipule e gerencie suas metas de forma mais objetiva.</p>
+                        <div className="home__bot__texts">
+                            <h4>Estudos e trabalhos.</h4>
+                            <p>Estipule e gerencie suas metas de forma mais objetiva.</p>
+                        </div>
                     </div>
                     <div className="home__bot__last">
                         <div className="circles">
 
                             <img src={CircleImage03} alt="" />
                         </div>
-                        <h4>E muito mais.</h4>
-                        <p>Todos os tipos de atividades, hábitos, metas entre outros...</p>
+                        <div className="home__bot__texts">
+                            <h4>E muito mais.</h4>
+                            <p>Todos os tipos de atividades, hábitos, metas entre outros...</p>
+                        </div>
                     </div>
 
                 </div>
