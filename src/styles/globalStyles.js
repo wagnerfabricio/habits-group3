@@ -12,7 +12,16 @@ const GlobalStyle = createGlobalStyle`
 :root {
     //Colors Variables
 
+    --color-white: #f3f3f3;
+    --color-grey-description: grey;
     --color-grey-10: #EAEAEA;
+    --color-grey-50: #4f4f4f;
+    --color-grey-100: #333333;
+    --color-green: #49967A;
+    --color-orange-50: #9B6E46;
+    --color-red: tomato;
+    --color-blue: #698896;
+
     --color-purple: #541DA8;
     --color-magenta: #A72C8E;
 }
@@ -31,7 +40,7 @@ a {
 
 
 /* gradiente background: rgb(149,51,191);
-background: linear-gradient(0deg, rgba(149,51,191,1) 35%, rgba(81,30,165,1) 100%); */
+background: linear-gradient(0deg, #4f4f4f 35%, rgba(81,30,165,1) 100%); */
 `;
 
 export default GlobalStyle;
