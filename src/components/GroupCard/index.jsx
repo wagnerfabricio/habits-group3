@@ -15,8 +15,7 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
   const { id, name, category, users_on_group, activities, goals, description } =
     group;
   const { subscribeToGroup, unsubscribeFromGroup } = useUserGroups();
-  const {userData} = useUser();
-
+  const { userData } = useUser();
 
   //Modal show Goals
   const [openShowGoals, setOpenShowGoals] = useState(false);
@@ -44,8 +43,8 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
         <header>
           <h4>{name}</h4>
           <Content>
-            <Tooltip title="Usuários" arrow>
-              <div>
+            <div>
+              <Tooltip title="Usuários">
                 <IconButton
                   onClick={handleOpenShowGroupUsersModal}
                   disabled={disable}
@@ -54,11 +53,11 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
                     <HiOutlineUserGroup />
                   </Badge>
                 </IconButton>
-              </div>
-            </Tooltip>
+              </Tooltip>
+            </div>
 
-            <Tooltip title="Eventos" arrow>
-              <div>
+            <div>
+              <Tooltip title="Eventos">
                 <IconButton
                   onClick={handleOpenShowEventsModal}
                   disabled={disable}
@@ -67,11 +66,11 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
                     <BsCalendarEvent />
                   </Badge>
                 </IconButton>
-              </div>
-            </Tooltip>
+              </Tooltip>
+            </div>
 
-            <Tooltip title="Goals" arrow>
-              <div>
+            <div>
+              <Tooltip title="Goals">
                 <IconButton
                   onClick={handleOpenShowGoalsModal}
                   disabled={disable}
@@ -80,29 +79,28 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
                     <BsClipboardData />
                   </Badge>
                 </IconButton>
-              </div>
-            </Tooltip>
+              </Tooltip>
+            </div>
             {userGroups && (
-              <Tooltip title="Sair do Grupo" arrow>
-                <div>
+              <div>
+                <Tooltip title="Sair do Grupo">
                   <IconButton onClick={() => unsubscribeFromGroup(id)}>
                     <GiEntryDoor />
                   </IconButton>
-                </div>
-              </Tooltip>
+                </Tooltip>
+              </div>
             )}
             {!userGroups && (
-              <Tooltip title="Entrar no Grupo" arrow>
-                <div>
+              <div>
+                <Tooltip title="Entrar no Grupo">
                   <IconButton onClick={() => subscribeToGroup(id)}>
                     <GiExitDoor />
                   </IconButton>
-                </div>
-              </Tooltip>
+                </Tooltip>
+              </div>
             )}
           </Content>
         </header>
-        <hr />
         <FlexColumn>
           <div>
             <p>
@@ -115,13 +113,13 @@ const GroupCard = ({ group, userGroups = false, disable = false }) => {
             </p>
           </div>
           {group.creator.id === userData.user.id && (
-            <Tooltip title="Editar grupo" arrow>
-              <div>
+            <div>
+              <Tooltip title="Editar grupo">
                 <IconButton onClick={handleOpenEditGroupModal}>
                   <BiEdit />
                 </IconButton>
-              </div>
-            </Tooltip>
+              </Tooltip>
+            </div>
           )}
         </FlexColumn>
       </Container>

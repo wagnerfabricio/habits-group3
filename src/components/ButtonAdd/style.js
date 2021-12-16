@@ -4,20 +4,18 @@ export const Container = styled.div`
   height: 35px;
   width: 35px;
   border-radius: 100%;
-  background-color: #1c294b;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  color: #ffffff;
+  color: var(--color-green);
   font-size: 20px;
   font-weight: bold;
-  border: 3px solid #1c294b;
+  border: 3px solid var(--color-green);
 
   &:hover {
-    background-color: #ffffff;
-    color: #1c294b;
+    color: var(--color-white);
+    background-color: var(--color-green);
     cursor: pointer;
-    border: solid 3px #1c294b;
   }
   svg {
     margin: 0 auto;
