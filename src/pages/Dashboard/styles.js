@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   /* display: flex; */
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 50px;
-  padding: 10px;
+
+  @media (min-width: 1025px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 10px;
+    gap: 30px;
+    background-color: var(--color-grey-50);
+  }
   .main {
     display: none;
-    @media (min-width: 800px) {
+    @media (min-width: 1025px) {
       display: block;
     }
   }

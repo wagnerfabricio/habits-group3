@@ -1,12 +1,13 @@
 import Input from "../../components/Input/index";
-import { FiLock, FiMail } from "react-icons/fi";
+import { FiLock, FiUser } from "react-icons/fi";
 import { AnimationContainer, Background, Container, Content } from "./styles";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useUser } from "../../providers/user";
-import SignUpImage from "../../assets/images/login-image.svg";
+import SignUpImage from "../../assets/images/loginImg.svg";
+import Button from "../../components/Button";
 
 const Login = () => {
   const schema = yup.object().shape({
@@ -23,13 +24,10 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const history = useHistory();
-
   const { login } = useUser();
 
   const onSubmit = (data) => {
     login(data);
-    history.push('/dashboard');
   };
 
   return (
@@ -39,15 +37,13 @@ const Login = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Login</h1>
             <Input
-              label="Username"
-              icon={FiMail}
+              icon={FiUser}
               placeholder="Username"
               register={register}
               name="username"
               error={errors.username?.message}
             />
             <Input
-              label="Senha"
               icon={FiLock}
               placeholder="Senha"
               register={register}
@@ -55,9 +51,9 @@ const Login = () => {
               error={errors.password?.message}
               type="password"
             />
-            <button type="submit">Enviar</button>
+            <Button type="submit">Enviar</Button>
             <p>
-              Caso ainda não tenha um cadastro <Link to="/signup">clique aqui</Link> para fazer o seu cadastro.
+              Caso ainda não tenha um cadastro <Link to="/signup"><span>clique aqui</span></Link> para fazer o seu cadastro.
             </p>
           </form>
           <div>

@@ -11,20 +11,21 @@ export const Container = styled.div`
 `;
 
 export const InputContainer = styled.div`
-  background: #f5f5f5;
+  background-color: var(--color-grey-100);
   border-radius: 10px;
-  border: 2px solid #666360;
+  border: 2px solid var(--color-grey-100);;
   color: #666360;
   padding: 1rem;
   width: 300px;
   display: flex;
+  margin: 5px;
   transition: 0.4s;
   ${(props) =>
     props.isErrored &&
     css`
-      border-color: red;
+      border-color: var(--color-red);
       svg {
-        color: red;
+        color: var(--color-red);
       }
     `}
   input {
@@ -32,7 +33,7 @@ export const InputContainer = styled.div`
     align-items: center;
     flex: 1;
     border: 0;
-    color: #312e38;
+    color: var(--color-white);
     &::placeholder {
       color: #666360;
     }
@@ -42,6 +43,6 @@ export const InputContainer = styled.div`
   }
 
   @media (max-width: 500px) {
-    width: 60vw;
+    width: 70vw;
   }
 `;
