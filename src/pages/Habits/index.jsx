@@ -3,6 +3,7 @@ import {
   FlexContainer,
   HabitsList,
   Header,
+  PageContainer,
   SearchError,
 } from "./styles";
 import { ButtonAdd } from "../../components/ButtonAdd";
@@ -35,6 +36,7 @@ const Habits = () => {
   const handleCloseAddHabit = () => setOpenAddHabit(false);
 
   return (
+    <PageContainer>
     <Container>
       <Header>
         <FlexContainer>
@@ -76,6 +78,7 @@ const Habits = () => {
         </Box>
       </Modal>
     </Container>
+    </PageContainer>
   );
 };
 

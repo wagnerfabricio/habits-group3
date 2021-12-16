@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background: var(--color-grey-50);
-  height: calc(100vh - 30px);
+  /* height: calc(100vh - 30px); */
   border-radius: 10px;
   box-sizing: border-box;
   color: var(--color-white);
 `;
 
 export const GridBox = styled.div`
-  height: 70vh;
+  height: 90vh;
   box-sizing: border-box;
 
   @media (min-width: 800px) {
@@ -26,7 +26,7 @@ export const Content = styled.div`
     grid-template-rows: 0.3fr 5fr;
     grid-row-gap: 10px;
 
-    height: 70vh;
+    height: 90vh;
     box-sizing: border-box;
   }
 
@@ -59,7 +59,7 @@ export const Header = styled.header`
 `;
 
 export const LeftBox = styled.div`
-  height: 70vh;
+  height: 90vh;
   display: grid;
   grid-template-rows: 0.3fr 4fr 0.3fr 2fr;
   grid-row-gap: 10px;

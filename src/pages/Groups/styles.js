@@ -64,6 +64,12 @@ export const Container = styled.div`
   }
 `;
 
+export const FlexContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Main = styled.div`
   padding: 10px;
 
