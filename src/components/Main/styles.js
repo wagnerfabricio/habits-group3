@@ -13,7 +13,7 @@ export const GridBox = styled.div`
 
   @media (min-width: 800px) {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
