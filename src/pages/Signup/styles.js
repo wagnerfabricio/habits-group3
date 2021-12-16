@@ -11,11 +11,7 @@ export const Background = styled.div`
   @media (min-width: 1024px) {
     flex: 1;
     background: url(${SignUpImage}) no-repeat center,
-      linear-gradient(
-        0deg,
-        rgba(149, 51, 191, 1) 35%,
-        rgba(81, 30, 165, 1) 100%
-      );
+    var(--color-grey-50);
     background-size: 40vw;
   }
 `;
@@ -27,19 +23,8 @@ export const Content = styled.div`
   justify-content: center;
   place-content: center;
   width: 100%;
+  background-color: var(--color-grey-100);
 
-  background: linear-gradient(
-    0deg,
-    rgba(149, 51, 191, 1) 35%,
-    rgba(81, 30, 165, 1) 100%
-  );
-
-  /* .form-father {
-    width: 30vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
   form {
     display: flex;
     flex-direction: column;
@@ -51,13 +36,20 @@ export const Content = styled.div`
     border-radius: 10px;
     width: 25%;
     gap: 10px 0;
+    background-color: var(--color-grey-50);
+    color: var(--color-white);
   }
-
+  p{
+      color: var(--color-white);
+  }
+  span{
+    color: var(--color-grey-description)
+  }
 
   @media (min-width: 1024px) {
     width: 40%;
     form {
-      padding: 60px 15px;
+      padding: 70px 70px; 
     }
   }
 `;
@@ -80,6 +72,7 @@ export const AnimationContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 60vh;
   animation: ${appearFromRight} 1s;
   form {
     /* margin: 80px 0; */
@@ -88,45 +81,34 @@ export const AnimationContainer = styled.div`
     padding: 10px;
     text-align: center;
     h1 {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
     p {
       margin-top: 0.5rem;
       margin: 0.1rem;
-      a {
-        font-weight: bold;
-        color: #c85311;
-      }
+
     }
   }
   @media (min-width: 450px) {
     form {
+      margin: 10px;
+      padding: 10px;
       width: 400px;
       /* margin-right: 30px; */
     }
+    h1{
+      margin-top: 50px;
+    }
   }
   @media (max-width: 430px) {
-    h2{
-      margin-top: 5px;
-    }
     form {
-      margin-top: 10px;
-      width: 320px;
-      height: 460px;
-      /* margin-right: 30px; */
+      padding: 10px;
     }
     button{
       padding: 10px;
     }
   }
-  div {
-    img {
-      margin-top: 10px;
-      height: 120px;
-      width: 150px;
-      /* margin-bottom: 60px; */
-    }
-  }
+
   @media (min-width: 1030px) {
     img {
       display: none;

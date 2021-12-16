@@ -9,7 +9,6 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { Link, useHistory } from "react-router-dom";
 import { FiLock, FiMail, FiUser } from "react-icons/fi";
-import SignUpImage from "../../assets/images/cadastre-se.svg";
 
 function SignUp() {
   const schema = yup.object().shape({
@@ -54,11 +53,10 @@ function SignUp() {
       <Content>
         <AnimationContainer>
           <form onSubmit={handleSubmit(onSubmitFuncion)}>
-            <h2>Cadastre-se</h2>
+            <h1>Cadastre-se</h1>
             <Input
               icon={FiUser}
               register={register}
-              label="Nome"
               placeholder={"Nome"}
               name="username"
               error={errors.username?.message}
@@ -66,7 +64,6 @@ function SignUp() {
             <Input
               icon={FiMail}
               register={register}
-              label="Email"
               placeholder={"Email"}
               name="email"
               error={errors.email?.message}
@@ -75,7 +72,6 @@ function SignUp() {
               icon={FiLock}
               name="password"
               register={register}
-              label="Senha"
               placeholder={"Senha"}
               type="password"
               error={errors.password?.message}
@@ -84,23 +80,19 @@ function SignUp() {
               icon={FiLock}
               name="passwordConfirm"
               register={register}
-              label="Confirmar Senha"
               placeholder={"Confirmar Senha"}
               type="password"
               error={errors.passwordConfirm?.message}
             ></Input>
             <Button type="submit">Cadastrar</Button>
             <p>
-              Caso já possua um cadastro,{" "}
+              Já possui um cadastro?{" "}
               <Link to="/login" className="link">
-                clique aqui
+                <span>Clique aqui</span>
               </Link>{" "}
               para fazer o seu login!
             </p>
           </form>
-          <div>
-            <img src={SignUpImage} alt="" />
-          </div>
         </AnimationContainer>
       </Content>
       </Container>
