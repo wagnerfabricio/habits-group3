@@ -23,9 +23,9 @@ export const ActivitiesProvider = ({ children }) => {
       })
       .then(async (response) => {
         userGroupsSubscriptions();
-        toast.success(`${data.title} agora é uma atividade`);
+        toast.success(`${data.title} agora é um evento`);
       })
-      .catch((error) => toast.error("Erro ao criar uma atividade"));
+      .catch((error) => toast.error("Erro ao criar evento"));
   };
 
   const updateActivity = (id, data) => {
@@ -37,11 +37,11 @@ export const ActivitiesProvider = ({ children }) => {
       })
       .then(async (response) => {
         userGroupsSubscriptions();
-        toast.success("Atividade atualizada com sucesso");
+        toast.success("Evento atualizado com sucesso");
       })
       .catch((error) =>
         toast.error(
-          "Erro ao atualizar esta atividade. Lembre-se que você precisa estar no grupo passado."
+          "Erro ao atualizar este evento. Somente membros do grupo podem alterá-lo."
         )
       );
   };
@@ -55,9 +55,9 @@ export const ActivitiesProvider = ({ children }) => {
       })
       .then(async (response) => {
         userGroupsSubscriptions();
-        toast.success("Atividade removida com sucesso!");
+        toast.success("Evento removido com sucesso!");
       })
-      .catch((error) => toast.error("Erro ao remover esta atividade"));
+      .catch((error) => toast.error("Erro ao remover este evento"));
   };
 
   return (
