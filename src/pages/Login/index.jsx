@@ -1,7 +1,7 @@
 import Input from "../../components/Input/index";
-import { FiLock, FiMail, FiUser } from "react-icons/fi";
+import { FiLock, FiUser } from "react-icons/fi";
 import { AnimationContainer, Background, Container, Content } from "./styles";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -24,13 +24,10 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const history = useHistory();
-
   const { login } = useUser();
 
   const onSubmit = (data) => {
     login(data);
-    history.push('/dashboard');
   };
 
   return (
