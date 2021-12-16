@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  
   display: flex;
+  
 `;
 
 export const ContainerScroll = styled.div`
@@ -15,10 +15,10 @@ export const ContainerScroll = styled.div`
 
 export const ActivityContainer = styled.div`
   width: 95%;
-  height: 90px;
+  min-height: 90px;
   display: flex;
   align-items: center;
-  background-color: #efede8;
+  background-color: var(--color-grey-100);
   padding: 0px 8px;
   border-radius: 15px;
   margin: 8px;
@@ -49,12 +49,11 @@ export const DeleteButton = styled.button`
   height: 80px;
   background-color: transparent;
   svg{
+    color: var(--color-red);
     height: 1.2rem;
     width: 1.2rem;
   }
-  :hover {
-    color: tomato;
-  }
+
 `;
 export const Title = styled.h4`
   padding-bottom: 5px;
@@ -63,13 +62,18 @@ export const Title = styled.h4`
 `;
 
 export const ButtonCard = styled.button`
+  
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   width: 90%;
   height: 70px;
   border: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #efede8;
+  background-color: var(--color-grey-100);
+  h4{
+    color: var(--color-white);
+  }
 `
