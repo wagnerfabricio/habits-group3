@@ -6,7 +6,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0; 
     box-sizing: border-box;
     outline: 0;
-   
+    font-family: ui-serif;
+    
+  ::-webkit-scrollbar{
+    display: none;
+  }
+
 }
 
 :root {

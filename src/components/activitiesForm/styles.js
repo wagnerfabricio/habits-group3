@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+margin: 0 auto;
+`
 
 export const Container = styled.div`
   height: 450px;
@@ -14,6 +17,12 @@ export const Container = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
+  form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
 
   input {
       padding: 8px;

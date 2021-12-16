@@ -20,8 +20,8 @@ const ShowGroupInfoCard = ({
 }) => {
   const showUsers = info.map((user) => (
     <li key={user.id}>
-      <h5>Usuário: {user.username}</h5>
-      <p>Email: {user.email}</p>
+      <h5><span>Usuário: </span>{user.username}</h5>
+      <p><span>Email: </span>{user.email}</p>
     </li>
   ));
 
@@ -80,7 +80,6 @@ const ShowGroupInfoCard = ({
             </Tooltip>
           </div>
         </header>
-        <hr />
         <ul>{users && showUsers}</ul>
         <ul>{goals && showGoals}</ul>
         <ul>{activities && showEvents}</ul>

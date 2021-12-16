@@ -26,8 +26,8 @@ export const Container = styled.div`
   .headder button {
     display: flex;
     align-items: center;
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     justify-content: center;
     border-radius: 100%;
     margin: 0;
@@ -37,7 +37,7 @@ export const Container = styled.div`
     font-size: 18px;
     font-weight: bold;
     position: absolute;
-    margin: 10px 0 0 270px;
+    margin: 15px 0 0 255px;
   }
   h2 {
     margin: 40px auto 0 auto;

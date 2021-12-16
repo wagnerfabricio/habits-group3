@@ -180,8 +180,9 @@ export const UserGroupList = styled.ul`
   border-radius: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
+ 
   overflow-y: scroll;
-
+  overflow-x: hidden;
   h3 {
     color: white;
     padding: 20px;
@@ -191,6 +192,7 @@ export const UserGroupList = styled.ul`
   @media (min-width: 800px) {
     flex: 1;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 65vh;
 
     /* box-shadow: 0px 0px 5px black; */
