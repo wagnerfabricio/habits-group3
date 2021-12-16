@@ -17,7 +17,6 @@ export const Container = styled.div`
     height: 5%;
     padding: 0 20px 0 20px;
   }
-
   .home__header ul {
     display: flex;
   }
@@ -174,7 +173,6 @@ export const Container = styled.div`
     width: 80%;
     box-sizing: border-box;
   }
-
   .home__bot__mid img {
     height: 100%;
     width: 100%;

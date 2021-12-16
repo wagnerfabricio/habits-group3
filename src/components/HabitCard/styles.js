@@ -2,48 +2,37 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  align-items: center;
   padding: 10px;
   width: 100%;
-  height: 90px;
-  background: ${(props) => {
-    if (props.difficulty === "Fácil") return "#C3DDDC";
-    if (props.difficulty === "Moderada") return "#F0EDEB";
-    return "#E6DDF0";
-  }};
+  min-height: 90px;
+  background-color: var(--color-grey-100);
+
   margin-bottom: 10px;
   border-radius: 10px;
   box-sizing: border-box;
   border-right: 1px solid transparent;
 
-  svg {
-    font-size: 2.3rem;
-    color: #541da8;
-  }
-
   :hover {
-    border-right: 1px solid green;
+    border-right: 1px solid var(--color-white);
   }
 `;
 
 export const Content = styled.button`
-  border: none;
-  background: none;
-  text-align: left;
-  width: 100%;
+  font-family: ui-serif;
+
   display: grid;
   grid-template-columns: 4fr 2fr 1fr;
   align-items: center;
-`;
-
-export const IncreaseButton = styled.button`
-  margin-right: 10px;
+  text-align: left;
+  color: var(--color-white);
   background: none;
   border: none;
+  margin-left: 10px;
+  width: 100%;
 
-  :hover {
-    svg {
-      color: green;
-    }
+  h4 {
+    margin-right: 10px;
   }
 `;
 
@@ -56,17 +45,34 @@ export const EditButton = styled.button`
 `;
 
 export const CategoryBox = styled.p`
-  color: grey;
+  font-size: 14px;
+  color: var(--color-grey-description);
+  margin-top: 5px;
+
+  span {
+    font-weight: bold;
+  }
 `;
 
 export const Level = styled.p`
-  margin: 0 auto;
+  margin-right: 10px;
   text-align: center;
   width: 80px;
   padding: 10px;
-  background: #ffffff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid
+    ${(props) => {
+      if (props.difficulty === "Fácil") return "var(--color-green)";
+      if (props.difficulty === "Moderada") return "var(--color-orange-50)";
+      return "var(--color-red)";
+    }};
+
+  color: ${(props) => {
+    if (props.difficulty === "Fácil") return "var(--color-green)";
+    if (props.difficulty === "Moderada") return "var(--color-orange-50)";
+    return "var(--color-red)";
+  }};
 `;
 
 export const ColumnBox = styled.div`
