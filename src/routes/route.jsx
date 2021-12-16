@@ -1,4 +1,4 @@
-//finalizada porém ainda não implementada... 
+//finalizada porém ainda não implementada...
 
 import { Route as ReactDOMRoute, Redirect } from "react-router-dom";
 
@@ -8,8 +8,15 @@ const Route = ({ isPrivate = false, component: Component, ...rest }) => {
   return (
     <ReactDOMRoute
       {...rest}
+      // render={() => {
+      //   return isPrivate && !token ? <Redirect to="/" /> : <Component />;
+      // }}
       render={() => {
-        return isPrivate && !token ? <Redirect to="/" /> : <Component />;
+        return isPrivate === !!token ? (
+          <Component />
+        ) : (
+          <Redirect to={isPrivate ? "/login" : "/dashboard"} />
+        );
       }}
     />
   );

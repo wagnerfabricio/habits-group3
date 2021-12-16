@@ -18,6 +18,7 @@ import { useUserGroups } from "../../providers/userGroups";
 import GroupCard from "../../components/GroupCard";
 import { useGroups } from "../../providers/groups";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
+import { FlexContainer } from "../Habits/styles";
 
 const Groups = () => {
   // const [searchUserGroup, setSearchUserGroup] = useState("");
@@ -33,7 +34,6 @@ const Groups = () => {
   };
 
   const userGroupsTitle = useRef();
-
   const scrollToTopUserGroups = () => {
     userGroupsTitle.current.scrollIntoView({ behavior: "smooth" });
     document
@@ -81,15 +81,19 @@ const Groups = () => {
       <Container>
         <Main>
           <MainHeader>
-            <h1
-              onClick={() => {
-                searchGroup("");
-                setUseFilterGroups(false);
-                setInputSearchGroup("");
-              }}
-            >
-              Grupos
-            </h1>
+            <FlexContainer>
+              <h1
+                onClick={() => {
+                  searchGroup("");
+                  setUseFilterGroups(false);
+                  setInputSearchGroup("");
+                }}
+              >
+                Grupos
+              </h1>
+                <ButtonAdd onClick={handleOpenAddGroupModal} className="addGroupButton"/>
+            </FlexContainer>
+
             <input
               type="text"
               placeholder="Pesquisar Grupo"
@@ -102,7 +106,6 @@ const Groups = () => {
             <button onClick={handleSearch}>
               <ImSearch />
             </button>
-            <ButtonAdd onClick={handleOpenAddGroupModal} />
           </MainHeader>
           <Content>
             <ListBox>

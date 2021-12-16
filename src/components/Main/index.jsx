@@ -8,14 +8,16 @@ import {
   HabitsList,
   LeftBox,
   Header,
-  ActivitiesList,
   GridBox,
   FlexContainer,
 } from "./styles";
+import ActivitiesCard from "../ActivitiesCard";
+import { useEffect } from "react";
 
-const Main = ({handleClick}) => {
+const Main = ({ handleClick }) => {
   const { userHabits } = useHabits();
   const { userGroups } = useUserGroups();
+  const { getHabits } = useHabits();
 
   const orderedHabits = userHabits.sort((a, b) => a.id - b.id);
 
@@ -33,6 +35,27 @@ const Main = ({handleClick}) => {
     <HabitCard habit={habit} group={true} key={habit.id} />
   ));
 
+  const userGroupsEvents = userGroups.flatMap((group) => {
+    return group.activities.map((activity) => activity);
+  });
+
+  const showEvents = userGroupsEvents.map((activity) => {
+    const activityGroup = userGroups.filter(
+      (group) => group.id === activity.group
+    );
+    return (
+      <ActivitiesCard
+        activity={activity}
+        group={activityGroup[0]}
+        key={activity.id}
+      />
+    );
+  });
+
+  useEffect(() => {
+    getHabits();
+  }, []);
+
   return (
     <Container className="main">
       <Header>
@@ -47,7 +70,7 @@ const Main = ({handleClick}) => {
             <div>
               <FlexContainer>
                 <h2>Seus hábitos</h2>
-                <ButtonAdd onClick={handleClick}/>
+                <ButtonAdd onClick={handleClick} />
               </FlexContainer>
               <p>
                 {new Date().toLocaleDateString("pt-BR", {
@@ -60,73 +83,14 @@ const Main = ({handleClick}) => {
           </Header>
           <HabitsList>{showHabits}</HabitsList>
           <h2>Eventos de seus Grupos:</h2>
-          <ActivitiesList>
-            <p
-              style={{
-                height: "70px",
-                background: "lightGrey",
-                marginBottom: "10px",
-              }}
-            >
-              {" "}
-              Activity Card 1{" "}
-            </p>
-            <p
-              style={{
-                height: "70px",
-                background: "lightGrey",
-                marginBottom: "10px",
-              }}
-            >
-              {" "}
-              Activity Card 1{" "}
-            </p>
-            <p
-              style={{
-                height: "70px",
-                background: "lightGrey",
-                marginBottom: "10px",
-              }}
-            >
-              {" "}
-              Activity Card 1{" "}
-            </p>
-            <p
-              style={{
-                height: "70px",
-                background: "lightGrey",
-                marginBottom: "10px",
-              }}
-            >
-              {" "}
-              Activity Card 1{" "}
-            </p>
-            <p
-              style={{
-                height: "70px",
-                background: "lightGrey",
-                marginBottom: "10px",
-              }}
-            >
-              {" "}
-              Activity Card 1{" "}
-            </p>
-            <p
-              style={{
-                height: "70px",
-                background: "lightGrey",
-                marginBottom: "10px",
-              }}
-            >
-              {" "}
-              Activity Card 1{" "}
-            </p>
-          </ActivitiesList>
+          <HabitsList>{showEvents}</HabitsList>
         </LeftBox>
         <Content className="group">
           <Header>
             <h2>Metas em seus Grupos:</h2>
-            <p>Total: <span>{orderedUserGroupsHabits.length}</span> </p>
+            <p>
+              Total: <span>{orderedUserGroupsHabits.length}</span>{" "}
+            </p>
           </Header>
           <Content className="groups_list">{showGroupsHabits}</Content>
         </Content>
