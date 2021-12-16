@@ -5,6 +5,7 @@ export const Container = styled.aside`
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color:  var(--color-grey-50);
   @media (min-width: 800px) {
     max-width: 600px;
   }
@@ -56,10 +57,10 @@ export const UserContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 70%;
+  width: 90%;
   height: 100%;
   max-height: 200px;
-  padding: 20px;
+  padding: 20px 0;
 `;
 
 export const UserContent = styled.div`

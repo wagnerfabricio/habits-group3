@@ -59,6 +59,28 @@ export const Container = styled.div`
   .top__frist__left img {
     height: 60%;
     width: auto;
+    animation: slideRight 2s;
+  }
+
+  @keyframes slideLeft {
+    from {
+      margin-left: 30%;
+      opacity: 0%;
+    }
+    to {
+      margin-left: 0%;
+      opacity: 100%;
+    }
+  }
+  @keyframes slideRight {
+    from {
+      margin-right: 30%;
+      opacity: 20%;
+    }
+    to {
+      margin-right: 0%;
+      opacity: 100%;
+    }
   }
   .top__frist__right {
     height: 100%;
@@ -122,6 +144,7 @@ export const Container = styled.div`
   }
   .top__second__right img {
     height: 60%;
+    animation: slideLeft 2s;
   }
 
   .home__bot {
