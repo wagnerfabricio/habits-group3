@@ -32,7 +32,7 @@ const Main = ({ handleClick }) => {
   const orderedUserGroupsHabits = userGroupsHabits.sort((a, b) => a.id - b.id);
 
   const showGroupsHabits = orderedUserGroupsHabits.map((habit) => (
-    <HabitCard habit={habit} group={true} key={habit.id} />
+    <HabitCard habit={habit} group={true} key={habit.id} goal={true} />
   ));
 
   const userGroupsEvents = userGroups.flatMap((group) => {
