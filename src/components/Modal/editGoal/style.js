@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 390px;
-  width: 450px;
-  background-color: #41148f;
+  width: 400px;
+  background-color: var(--color-grey-100);
   display: flex;
   flex-direction: column;
   margin: 20vh auto;
@@ -12,6 +12,7 @@ export const Container = styled.div`
   box-shadow: 3px 5px 5px #00000080;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
 
   form {
     display: flex;

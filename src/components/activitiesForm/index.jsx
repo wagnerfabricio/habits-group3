@@ -7,6 +7,7 @@ import { Container, CloseModal } from "./styles";
 import { FiXCircle } from "react-icons/fi";
 
 const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
+
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
     realization_time: yup.string().required("Senha obrigatório"),
@@ -21,11 +22,13 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
     resolver: yupResolver(schema),
   });
 
+ 
   const { addActivity } = useActivities();
 
   const onSubmit = (data) => {
     addActivity(data);
   };
+
 
   const { updateActivity } = useActivities();
 
@@ -37,13 +40,21 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
   return (
     <>
       {isAddForm ? (
+        <>
+        <Container>
+          <CloseModal>
+              <FiXCircle />
+          </CloseModal>
         <Box
           component="form"
           onSubmit={handleSubmit(isAddForm ? onSubmit : onSubmitEdit)}
-        >
-          <Container>
+          >
+         
+          <h2>Criar Evento</h2>
+
             <div>
               <TextField
+                // className='teste'
                 {...register("title")}
                 margin="normal"
                 variant="outlined"
@@ -55,20 +66,7 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
                 sx={{ mt: 2, background: "#F5F5F5" }}
               ></TextField>
             </div>
-            <div>
-              <TextField
-                id="datetime-local"
-                label="Data e hora"
-                type="datetime-local"
-                format="dd-MM-yyyy"
-                defaultValue="2021-12-24T10:30"
-                sx={{ width: 250 }}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                {...register("realization_time")}
-              />
-            </div>
+            
             <div>
               <TextField
                 {...register("group")}
@@ -84,6 +82,21 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
               ></TextField>
             </div>
 
+            <div>
+              <TextField
+                id="datetime-local"
+                label="Data e hora"
+                type="datetime-local"
+                format="dd-MM-yyyy"
+                defaultValue="2021-12-24T10:30"
+                sx={{ mt: '20px', width: '220px'}}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                {...register("realization_time")}
+              />
+            </div>
+
             <Button
               type="submit"
               variant="contained"
@@ -92,27 +105,20 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
               sx={{
                 marginTop: 4,
                 padding: "7px 40px",
-                backgroundColor: "#403CAA",
+                backgroundColor: "#FF0000",
                 "&:hover": {
-                  backgroundColor: "#2a2877",
+                  backgroundColor: "#FF0000",
                 },
               }}
             >
               adicionar
             </Button>
+            </Box>
           </Container>
-        </Box>
+        </>
       ) : (
         <Box component="form" onSubmit={handleSubmit(onSubmitEdit)}>
           <Container
-
-          // sx={{
-          //   border: "1px solid #F5F5F5",
-          //   background: "#f5f5f5e2",
-          //   padding: "50px",
-          //   width: "300px",
-          //   height: "300px",
-          // }}
           >
             <CloseModal onClick={() => setOpen(false)}>
               <FiXCircle />
@@ -156,7 +162,7 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
                 type="datetime-local"
                 format="dd-MM-yyyy"
                 defaultValue="2021-05-24T10:30"
-                sx={{ width: 250 }}
+                sx={{ width: '220px' }}
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -172,9 +178,9 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
               sx={{
                 marginTop: 4,
                 padding: "7px 40px",
-                backgroundColor: "#403CAA",
+                backgroundColor: "#FF0000",
                 "&:hover": {
-                  backgroundColor: "#2a2877",
+                  backgroundColor: "#c70303",
                 },
               }}
             >

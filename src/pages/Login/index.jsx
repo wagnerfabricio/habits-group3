@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useUser } from "../../providers/user";
-import SignUpImage from "../../assets/images/loginImg.svg";
+import SignUpImage from "../../assets/images/login-image.svg";
 import Button from "../../components/Button";
 
 const Login = () => {

@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
   height: 450px;
   width: 400px;
-  background-color: #f5f5f5;
+  background-color: var(--color-white);
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   margin: 20vh auto;
+  align-items: center;
   border-radius: 15px;
   box-shadow: 3px 5px 5px #00000080;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
 
   input {
       padding: 8px;

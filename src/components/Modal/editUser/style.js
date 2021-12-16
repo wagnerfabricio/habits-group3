@@ -61,4 +61,13 @@ export const Container = styled.div`
 export const ButtonExit = styled.button`
   background: none;
   border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    color: var(--color-grey-description);
+    margin-top: 5px;
+  }
 `;

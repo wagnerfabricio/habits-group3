@@ -4,7 +4,7 @@ export const Container = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #ffffff;
-  background-color: #541da8;
+  background-color: var(--color-grey-100);
   max-width: 400px;
   max-height: 450px;
   margin: 20vh auto;

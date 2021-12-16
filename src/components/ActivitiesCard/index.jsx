@@ -10,7 +10,6 @@ const ActivitiesCard = ({ activity, group }) => {
   const [open, setOpen] = useState(false);
   const { deleteActivity } = useActivities();
 
-
   const deleteAction = (id) => {
     deleteActivity(id);
   };
@@ -29,12 +28,11 @@ const ActivitiesCard = ({ activity, group }) => {
               <FiTrash2 />
             </DeleteButton>
         </ActivityContainer>
-
-        
+      
 
         <Modal open={open} onClose={() => setOpen(false)}>
           <Box>
-            <ActivitiesForm activity={activity} group={group} setOpen={setOpen}/> 
+            <ActivitiesForm activity={activity} group={group} setOpen={setOpen} /> 
           </Box>
         </Modal> 
       </Container>
