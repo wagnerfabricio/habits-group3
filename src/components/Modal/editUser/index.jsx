@@ -11,8 +11,8 @@ import { ButtonExit } from "./style";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export const EditUser = ({ handleCloseEditUserModal }) => {
-  const { updateUser } = useUser();
-
+  const { updateUser, userData } = useUser();
+  
   const formSchema = yup.object().shape({
     username: yup.string().required("Informe o novo usuário"),
     email: yup.string().required("Informe o email").email("Email inválido"),
@@ -63,17 +63,20 @@ export const EditUser = ({ handleCloseEditUserModal }) => {
           className="inputText"
           placeholder="Nome"
           {...register("username")}
+          defaultValue={userData.user.username}
         ></input>
         <input
           className="inputText"
           placeholder="E-mail"
           {...register("email")}
+          defaultValue={userData.user.email}
         ></input>
 
         <Button type="submit">Salvar alteração!</Button>
       </form>
       <ButtonExit onClick={onLogout}>
-        <GiExitDoor size={40} color={"grey"} />
+        <GiExitDoor size={35} color={"grey"}/>
+        <span>Sair</span>
       </ButtonExit>
     </Container>
   );
