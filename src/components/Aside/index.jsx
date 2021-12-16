@@ -10,6 +10,7 @@ import {
   UserContainer,
   UserContent,
   CardButton,
+  Button,
 } from "./styles";
 import { Chart } from "react-google-charts";
 import { useUser } from "../../providers/user";
@@ -18,6 +19,11 @@ import { deepOrange } from "@mui/material/colors";
 import groupsSVG from "../../assets/images/groups.svg";
 import habitsSVG from "../../assets/images/habit.svg";
 import { useHistory } from "react-router-dom";
+import { useActivities } from "../../providers/activities";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { EditUser } from "../Modal/editUser";
+import { useState } from "react";
+import { Modal, Box } from "@mui/material";
 
 const Aside = () => {
   const { userHabits } = useHabits();
@@ -25,10 +31,23 @@ const Aside = () => {
   const { userData } = useUser();
   const { username, email } = userData.user;
   const history = useHistory();
+  const { activities } = useActivities();
+  const userGroupsHabits = userGroups.flatMap((group) => {
+    return group.goals.map((habit) => habit);
+  });
+  const orderedUserGroupsHabits = userGroupsHabits.sort((a, b) => a.id - b.id);
+  const [openEditUser, setOpenEditUser] = useState(false);
+  const handleOpenEditUserModal = () => setOpenEditUser(true);
+  const handleCloseEditUserModal = () => setOpenEditUser(false);
+
+  console.log(userData);
 
   return (
     <Container>
       <UpperSection>
+        <Button onClick={handleOpenEditUserModal}>
+          <GiHamburgerMenu size={30} />
+        </Button>
         <UserContainer>
           <Avatar
             sx={{
@@ -68,7 +87,7 @@ const Aside = () => {
       <LowerSection>
         <StatsContainer>
           <Stats>
-            <span>12</span>
+            <span>{activities.length}</span>
             <p>Eventos</p>
           </Stats>
           <Stats>
@@ -80,13 +99,15 @@ const Aside = () => {
             <p>Hábitos</p>
           </Stats>
           <Stats>
-            <span>04</span>
+            <span>{orderedUserGroupsHabits.length}</span>
             <p>Metas</p>
           </Stats>
         </StatsContainer>
         <Chart
+          className="chart"
           width={"100%"}
           height={"100%"}
+          options={{ backgroundColor: "grey", fill: "white" }}
           max-heigth={"300px"}
           chartType="PieChart"
           loader={<div>Loading Chart</div>}
@@ -100,6 +121,12 @@ const Aside = () => {
           rootProps={{ "data-testid": "1" }}
         />
       </LowerSection>
+
+      <Modal open={openEditUser} onClose={handleOpenEditUserModal}>
+        <Box>
+          <EditUser handleCloseEditUserModal={handleCloseEditUserModal} />
+        </Box>
+      </Modal>
     </Container>
   );
 };

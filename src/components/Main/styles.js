@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: #ffffff;
+  background: var(--color-grey-50);
   height: calc(100vh - 30px);
   border-radius: 10px;
   box-sizing: border-box;
+  color: var(--color-white);
 `;
 
 export const GridBox = styled.div`
@@ -30,7 +31,7 @@ export const Content = styled.div`
   }
 
   &.groups_list {
-    background: var(--color-magenta);
+    background: var(--color-grey-50);
     border-radius: 10px;
     overflow-y: scroll;
     box-sizing: border-box;

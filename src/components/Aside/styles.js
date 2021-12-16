@@ -7,6 +7,9 @@ export const Container = styled.aside`
   /* width: 100%; */
   /* max-width: 600px; */
   height: 100%;
+  @media (min-width: 800px) {
+    max-width: 600px;
+  }
 `;
 
 export const UpperSection = styled.section`
@@ -16,13 +19,17 @@ export const UpperSection = styled.section`
   align-items: center;
   text-align: center;
   width: 100%;
-  min-width: 320px;
-  height: 60%;
-  padding: 20px;
 
+  height: 55%;
+  padding: 50px 0;
+  gap: 20px 0;
   border-radius: 15px;
-  background: #39006e;
-  color: #ffffff;
+  background: var(--color-grey-100);
+  color: var(--color-white);
+  @media (min-width: 800px) {
+    padding: 30px 0;
+    gap: 10px 0;
+  }
 
   h2 {
     padding: 10px;
@@ -85,14 +92,17 @@ export const CardsContainer = styled.div`
 export const CardButton = styled.div`
   display: flex;
 
-  color: black;
-  width: 70%;
+  color: var(--color-white);
+  width: 80%;
   height: 130px;
-  background: white;
+  background: var(--color-grey-description);
   padding: 10px;
   cursor: pointer;
   border-radius: 15px 0 15px 0;
   border-right: 4px solid transparent;
+  svg {
+    background: ${deepOrange[500]};
+  }
 
   :hover {
     border-right: 4px solid ${deepOrange[500]};
@@ -109,6 +119,16 @@ export const LowerSection = styled.section`
   align-items: center;
   height: 40%;
   padding: 10px;
+  @media (min-width: 800px) {
+    max-width: 600px;
+  }
+
+  svg {
+    border-radius: 15px;
+  }
+  text {
+    fill: var(--color-white);
+  }
 `;
 
 export const StatsContainer = styled.section`
@@ -120,33 +140,43 @@ export const StatsContainer = styled.section`
   justify-content: space-around;
   padding: 10px;
   gap: 10px;
-  font-size: 2vh;
+
   font-style: bolder;
 `;
 
 export const Stats = styled.div`
+  color: var(--color-white);
   display: flex;
   flex: 1;
-  padding: 5px;
+  padding: 3px;
   text-align: center;
   flex-direction: column;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  @media (min-width: 800px) {
+    font-size: 1.8rem;
+    font-style: bolder;
+  }
 `;
 
 export const Button = styled.button`
-  background: none;
-  color: #ffffff;
-  height: 30px;
-  border-radius: 0.5rem;
+  position: relative;
+  top: -40px;
+  right: -130px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   border: none;
-  width: 30px;
-  max-width: 336px;
+  color: var(--color-green);
+  background: none;
   font-weight: 600;
   transition: 0.5s;
-
-  margin-top: 1rem;
   :hover {
-    border: 2px solid #f5f5f5;
+    color: white;
+  }
+  @media (min-width: 800px) {
+    position: relative;
+    top: 0;
+    right: -250px;
   }
 `;
