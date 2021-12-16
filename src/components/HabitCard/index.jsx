@@ -7,7 +7,7 @@ import {
   Level,
   Container,
 } from "./styles";
-import { IoAddCircleOutline } from "react-icons/io5";
+import { BsPlusLg } from "react-icons/bs";
 import { TiMediaFastForwardOutline } from "react-icons/ti";
 import { useHabits } from "../../providers/habits";
 import { useEffect, useState } from "react";
@@ -15,6 +15,8 @@ import { useGroups } from "../../providers/groups";
 import { Modal, Box } from "@mui/material";
 import EditHabitModal from "../Modal/editHabit";
 import EditGoalModal from "../Modal/editGoal";
+
+import {ButtonAdd} from '../ButtonAdd'
 
 const HabitCard = ({ habit, group = false, goal = false }) => {
   const { id, title, category, difficulty, how_much_achieved } = habit;
@@ -41,26 +43,24 @@ const HabitCard = ({ habit, group = false, goal = false }) => {
     }
   };
 
-  const newTitle =
-    title.slice(0, 30).length > 8
-      ? `${title.split(" ").slice(0, 6).join(" ")}...`
-      : title;
+  // const newTitle =
+  //   title.slice(0, 30).length > 8
+  //     ? `${title.split(" ").slice(0, 6).join(" ")}...`
+  //     : title;
 
   useEffect(() => {}, [editHabit, editGroupGoal]);
 
   return (
     <>
-      <Container difficulty={difficulty}>
-        <IncreaseButton onClick={handleIncreaseAchievement}>
-          <IoAddCircleOutline />
-        </IncreaseButton>
+      <Container>
+        <ButtonAdd onClick={handleIncreaseAchievement}/>
         <Content onClick={!goal ? handleOpenEditHabit : handleOpenEditGoal}>
           <div>
-            <h3>{newTitle}</h3>
-            <CategoryBox>Categoria: {category}</CategoryBox>
+            <h4>{title}</h4>
+            <CategoryBox><span>Categoria:</span> {category}</CategoryBox>
           </div>
           <div>
-            <Level>{difficulty}</Level>
+            <Level difficulty={difficulty}>{difficulty}</Level>
           </div>
           <ColumnBox>
             {group && "Grupo"}

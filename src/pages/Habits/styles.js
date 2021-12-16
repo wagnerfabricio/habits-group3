@@ -1,8 +1,26 @@
 import styled from "styled-components";
 
+export const PageContainer = styled.div`
+  min-height: 100vh;
+  background: var(--color-grey-100);
+
+  height: calc(100vh -40px);
+  @media (min-width: 800px) {
+    padding: 40px;
+  }
+`;
+
 export const Container = styled.div`
   padding: 10px;
-  background: #f5f5f5f5;
+  color: var(--color-white);
+  background: var(--color-grey-50);
+
+  @media (min-width: 800px) {
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
 `;
 
 export const Header = styled.header`
