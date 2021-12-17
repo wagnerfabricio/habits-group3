@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Container } from "./style";
 import { useUser } from "../../../providers/user";
 import { useHabits } from "../../../providers/habits.js";
@@ -8,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Button from '../../Button/index';
 import { toast } from "react-toastify";
 import { FiX } from "react-icons/fi";
+import { useEffect } from "react";
 
 
 

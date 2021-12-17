@@ -19,7 +19,6 @@ import { deepOrange } from "@mui/material/colors";
 import groupsSVG from "../../assets/images/groups.svg";
 import habitsSVG from "../../assets/images/habit.svg";
 import { useHistory } from "react-router-dom";
-import { useActivities } from "../../providers/activities";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { EditUser } from "../Modal/editUser";
 import { useState } from "react";
@@ -31,7 +30,6 @@ const Aside = () => {
   const { userData } = useUser();
   const { username, email } = userData.user;
   const history = useHistory();
-  const { activities } = useActivities();
   const userGroupsHabits = userGroups.flatMap((group) => {
     return group.goals.map((habit) => habit);
   });
@@ -39,6 +37,10 @@ const Aside = () => {
   const [openEditUser, setOpenEditUser] = useState(false);
   const handleOpenEditUserModal = () => setOpenEditUser(true);
   const handleCloseEditUserModal = () => setOpenEditUser(false);
+
+  const userGroupsEvents = userGroups.flatMap((group) => {
+    return group.activities.map((activity) => activity);
+  });
 
 
   return (
@@ -86,7 +88,7 @@ const Aside = () => {
       <LowerSection>
         <StatsContainer>
           <Stats>
-            <span>{activities.length}</span>
+            <span>{userGroupsEvents.length}</span>
             <p>Eventos</p>
           </Stats>
           <Stats>

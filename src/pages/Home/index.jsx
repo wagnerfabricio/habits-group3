@@ -1,4 +1,3 @@
-import TestesActivity from "../../components/testesActivity"
 import { Container } from "./style"
 import Login01Image from "../../assets/images/Home01.svg"
 import Loguin02Image from "../../assets/images/Home02.svg"
