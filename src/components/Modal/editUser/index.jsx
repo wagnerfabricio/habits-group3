@@ -39,6 +39,7 @@ export const EditUser = ({ handleCloseEditUserModal }) => {
       email: infos.email,
     };
     updateUser(data);
+    handleCloseEditUserModal()
   };
   useEffect(() => {
     if (Object.keys(errors).length > 0) {

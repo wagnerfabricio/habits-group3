@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useActivities } from "../../providers/activities";
-import { Container, CloseModal } from "./styles";
+import { Container, CloseModal, Wrapper } from "./styles";
 import { FiXCircle } from "react-icons/fi";
 
 const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
@@ -38,7 +38,7 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
   };
 
   return (
-    <>
+    <Wrapper>
       {isAddForm ? (
         <>
         <Container>
@@ -189,7 +189,7 @@ const ActivitiesForm = ({ isAddForm, activity, group, setOpen }) => {
           </Container>
         </Box>
       )}
-    </>
+    </Wrapper>
   );
 };
 

@@ -13,6 +13,7 @@ import {
 } from "./styles";
 import ActivitiesCard from "../ActivitiesCard";
 import { useEffect } from "react";
+import mountain from '../../assets/images/mountain.jpg'
 
 const Main = ({ handleClick }) => {
   const { userHabits } = useHabits();
@@ -60,7 +61,7 @@ const Main = ({ handleClick }) => {
     <Container className="main">
       <Header>
         <img
-          src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+          src={mountain}
           alt="lake, mountains and a tree"
         />
       </Header>

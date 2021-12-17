@@ -12,18 +12,22 @@ import {
   PageContainer,
   ListBoxHeader,
   MainHeader,
+  GroupMenu,
 } from "./styles";
 import { ImSearch } from "react-icons/im";
 import { useUserGroups } from "../../providers/userGroups";
 import GroupCard from "../../components/GroupCard";
 import { useGroups } from "../../providers/groups";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
+import { AiOutlineHome } from "react-icons/ai";
 import { FlexContainer } from "../Habits/styles";
+import { useHistory } from "react-router-dom";
 
 const Groups = () => {
-  // const [searchUserGroup, setSearchUserGroup] = useState("");
   const [inputSearchGroup, setInputSearchGroup] = useState("");
   const [useFilterGroups, setUseFilterGroups] = useState(false);
+
+  const history = useHistory();
 
   const { userGroups } = useUserGroups();
 
@@ -82,16 +86,31 @@ const Groups = () => {
         <Main>
           <MainHeader>
             <FlexContainer>
-              <h1
-                onClick={() => {
-                  searchGroup("");
-                  setUseFilterGroups(false);
-                  setInputSearchGroup("");
-                }}
-              >
-                Grupos
-              </h1>
-                <ButtonAdd onClick={handleOpenAddGroupModal} className="addGroupButton"/>
+              <GroupMenu>
+                <ButtonAdd
+                  onClick={handleOpenAddGroupModal}
+                  className="addGroupButton"
+                />
+                <h1
+                  onClick={() => {
+                    searchGroup("");
+                    setUseFilterGroups(false);
+                    setInputSearchGroup("");
+                  }}
+                >
+                  Grupos
+                </h1>
+              </GroupMenu>
+              <Tooltip title="Voltar para Home" arrow>
+                <button
+                  className="home"
+                  onClick={() => {
+                    history.push("/dashboard");
+                  }}
+                >
+                  <AiOutlineHome />
+                </button>
+              </Tooltip>
             </FlexContainer>
 
             <input

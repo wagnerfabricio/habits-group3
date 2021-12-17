@@ -4,9 +4,8 @@ import { deepOrange } from "@mui/material/colors";
 export const Container = styled.aside`
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
-  /* max-width: 600px; */
   height: 100%;
+  background-color:  var(--color-grey-50);
   @media (min-width: 800px) {
     max-width: 600px;
   }
@@ -58,10 +57,10 @@ export const UserContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 70%;
+  width: 90%;
   height: 100%;
   max-height: 200px;
-  padding: 20px;
+  padding: 20px 0;
 `;
 
 export const UserContent = styled.div`
@@ -167,7 +166,7 @@ export const Button = styled.button`
   height: 50px;
   border-radius: 50%;
   border: none;
-  color: var(--color-green);
+  color: var( --color-grey-description);
   background: none;
   font-weight: 600;
   transition: 0.5s;
@@ -175,8 +174,8 @@ export const Button = styled.button`
     color: white;
   }
   @media (min-width: 800px) {
-    position: relative;
-    top: 0;
-    right: -250px;
+    position: absolute;
+    top: 20px;
+    left: 40px;
   }
 `;

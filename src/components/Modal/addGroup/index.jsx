@@ -38,6 +38,7 @@ const AddGroupModal = ({ handleCloseAddGroupModal }) => {
 
         }
         createGroup(data)
+        handleCloseAddGroupModal();
     }
     useEffect(() => {
         if (Object.keys(errors).length > 0) {

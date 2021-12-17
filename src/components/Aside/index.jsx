@@ -40,7 +40,6 @@ const Aside = () => {
   const handleOpenEditUserModal = () => setOpenEditUser(true);
   const handleCloseEditUserModal = () => setOpenEditUser(false);
 
-  console.log(userData);
 
   return (
     <Container>

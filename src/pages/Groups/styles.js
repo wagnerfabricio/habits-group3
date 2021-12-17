@@ -47,20 +47,6 @@ export const Container = styled.div`
       background-color: #3a3b3c;
       line-height: 42px;
     }
-
-    button {
-      color: var(--color-grey-description);
-      border: none;
-      padding: 5px;
-      width: 42px;
-      height: 42px;
-      font-size: 22px;
-      border-radius: 50%;
-
-      :hover {
-        background: var(--color-white);
-      }
-    }
   }
 `;
 
@@ -70,11 +56,23 @@ export const FlexContainer = styled.div`
   justify-content: space-between;
 `;
 
+export const GroupMenu = styled.div`
+  display: flex;
+
+  div {
+    width: 45px;
+  }
+
+  h1 {
+    margin-left: 10px;
+  }
+`;
+
 export const Main = styled.div`
   padding: 10px;
 
   hr {
-    margin: 10px 0;
+    margin: 20px 0;
   }
 
   @media (min-width: 800px) {
@@ -119,6 +117,19 @@ export const MainHeader = styled.header`
 
     :hover {
       background: var(--color-white);
+    }
+  }
+
+  button.home {
+    background: none;
+    border: 3px solid transparent;
+
+    :hover {
+      border: 3px solid var(--color-white);
+    }
+
+    svg {
+      color: var(--color-white);
     }
   }
 `;
@@ -180,8 +191,9 @@ export const UserGroupList = styled.ul`
   border-radius: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  overflow-y: scroll;
 
+  overflow-y: scroll;
+  overflow-x: hidden;
   h3 {
     color: white;
     padding: 20px;
@@ -191,9 +203,8 @@ export const UserGroupList = styled.ul`
   @media (min-width: 800px) {
     flex: 1;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 65vh;
-
-    /* box-shadow: 0px 0px 5px black; */
   }
 `;
 
