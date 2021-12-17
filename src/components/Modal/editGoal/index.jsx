@@ -1,7 +1,4 @@
-import { useState, useEffect } from "react";
 import { Container } from "./style";
-import { useUser } from "../../../providers/user";
-import { useHabits } from "../../../providers/habits.js";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,10 +6,9 @@ import Button from "../../Button/index";
 import { toast } from "react-toastify";
 import { FiX } from "react-icons/fi";
 import { useGroups } from "../../../providers/groups";
+import { useEffect } from "react";
 
 const EditGoalModal = ({ handleCloseEditGoal, habit }) => {
-  console.log(habit);
-  const { userData } = useUser();
   const { editGroupGoal, deleteGroupGoal } = useGroups();
 
   const formSchema = yup.object().shape({

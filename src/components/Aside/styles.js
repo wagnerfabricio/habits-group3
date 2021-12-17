@@ -5,6 +5,7 @@ export const Container = styled.aside`
   display: flex;
   flex-direction: column;
   background-color: var(--color-grey-50);
+  margin: 0 auto;
   @media (min-width: 800px) {
     max-width: 600px;
     height: 100vh;

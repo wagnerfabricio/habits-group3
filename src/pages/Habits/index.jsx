@@ -76,7 +76,7 @@ const Habits = () => {
                 setInputSearchHabit(e.target.value);
               }}
             />
-            <button onClick={handleSearch}>
+            <button onClick={handleSearch} className="searchButton">
               <ImSearch />
             </button>
           </FlexContainer>

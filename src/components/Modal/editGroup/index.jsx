@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Container } from "./style";
-import { useUser } from "../../../providers/user";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { api } from "../../../services/api";
 import { useGroups } from "../../../providers/groups";
 import Button from "../../Button/index";
 import { toast } from "react-toastify";
