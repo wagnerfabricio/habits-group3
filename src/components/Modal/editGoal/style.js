@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 390px;
-  width: 400px;
+  max-width: 400px;
   background-color: var(--color-grey-100);
   display: flex;
   flex-direction: column;
@@ -22,6 +22,7 @@ export const Container = styled.div`
   .headder {
     display: flex;
     margin: 0 0 30px 0;
+    width: 100%;
   }
   .headder button {
     display: flex;
@@ -36,8 +37,9 @@ export const Container = styled.div`
     background-color: #ffffff00;
     font-size: 18px;
     font-weight: bold;
-    position: absolute;
-    margin: 15px 0 0 255px;
+    position: relative;
+    right: 10px;
+    top: 10px;
   }
   h2 {
     margin: 40px auto 0 auto;
