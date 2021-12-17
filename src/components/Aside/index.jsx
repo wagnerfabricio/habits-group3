@@ -51,8 +51,8 @@ const Aside = () => {
           <Avatar
             sx={{
               bgcolor: deepOrange[500],
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
               fontSize: 50,
             }}
           >

@@ -56,6 +56,26 @@ export const FlexContainer = styled.div`
   justify-content: space-between;
 `;
 
+export const ButtonAdd = styled.div`
+  display: grid;
+  place-items: center;
+  color: var(--color-green);
+  border: 3px solid var(--color-green);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  font-size: 19px;
+
+  :hover {
+    svg {
+      width: 35px;
+      color: var(--color-white);
+    }
+    background: var(--color-green);
+  }
+`;
+
 export const GroupMenu = styled.div`
   display: flex;
 
@@ -64,7 +84,7 @@ export const GroupMenu = styled.div`
   }
 
   h1 {
-    margin-left: 10px;
+    margin-left: 20px;
   }
 `;
 

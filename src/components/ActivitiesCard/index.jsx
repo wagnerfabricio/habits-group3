@@ -21,7 +21,7 @@ const ActivitiesCard = ({ activity, group }) => {
         <ActivityContainer >
           <ButtonCard onClick={() => setOpen(true)}>
             <Title>{activity.title}</Title>
-            <span>{group.name}</span>
+            <span>{group.name.slice(0,30)}...</span>
             <span>{activity.realization_time}</span>
           </ButtonCard>
             <DeleteButton onClick={() => deleteAction(activity.id)}>

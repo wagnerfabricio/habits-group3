@@ -5,18 +5,23 @@ import {
   Header,
   PageContainer,
   SearchError,
+  ButtonAdd,
 } from "./styles";
-import { ButtonAdd } from "../../components/ButtonAdd";
 import { useHabits } from "../../providers/habits";
 import HabitCard from "../../components/HabitCard";
 import { useState } from "react";
-import { Box, Modal } from "@mui/material";
+import { Box, Modal, Tooltip } from "@mui/material";
 import AddHabitModal from "../../components/Modal/addHabit";
 import { ImSearch } from "react-icons/im";
+import { BsPlusLg } from "react-icons/bs";
+import { GroupMenu } from "../Groups/styles";
+import { AiOutlineHome } from "react-icons/ai";
+import { useHistory } from "react-router-dom";
 
 const Habits = () => {
   const [inputSearchHabit, setInputSearchHabit] = useState("");
   const { userHabits } = useHabits();
+  const history = useHistory();
 
   const orderedHabits = userHabits.sort((a, b) => a.id - b.id);
 
@@ -37,47 +42,65 @@ const Habits = () => {
 
   return (
     <PageContainer>
-    <Container>
-      <Header>
-        <FlexContainer>
-          <h1 onClick={() => setInputSearchHabit("")}>Seus hábitos</h1>
-          <ButtonAdd onClick={handleOpenAddHabit} />
-        </FlexContainer>
-        <FlexContainer>
-          <input
-            type="text"
-            placeholder="Pesquisar hábito"
-            value={inputSearchHabit}
-            onFocus={(e) => e.target.select()}
-            onChange={(e) => {
-              setInputSearchHabit(e.target.value);
-            }}
-          />
-          <button onClick={handleSearch}>
-            <ImSearch />
-          </button>
-        </FlexContainer>
-        <p>
-          {new Date().toLocaleDateString("pt-BR", {
-            day: "2-digit",
-            month: "long",
-          })}
-        </p>
-      </Header>
-      <HabitsList>
-        {searchHabit.length > 0 ? (
-          showHabits
-        ) : (
-          <SearchError>Não foi encontrado nenhum hábito</SearchError>
-        )}
-      </HabitsList>
+      <Container>
+        <Header>
+          <FlexContainer>
+            <GroupMenu>
+              <ButtonAdd
+                id="buttonAdd"
+                onClick={handleOpenAddHabit}
+                style={{ width: "40px" }}
+              >
+                <BsPlusLg />
+              </ButtonAdd>
+              <h1 onClick={() => setInputSearchHabit("")}>Seus hábitos</h1>
+            </GroupMenu>
+            <Tooltip title="Voltar para Home" arrow>
+              <button
+                className="home"
+                onClick={() => {
+                  history.push("/dashboard");
+                }}
+              >
+                <AiOutlineHome />
+              </button>
+            </Tooltip>
+          </FlexContainer>
+          <FlexContainer>
+            <input
+              type="text"
+              placeholder="Pesquisar hábito"
+              value={inputSearchHabit}
+              onFocus={(e) => e.target.select()}
+              onChange={(e) => {
+                setInputSearchHabit(e.target.value);
+              }}
+            />
+            <button onClick={handleSearch}>
+              <ImSearch />
+            </button>
+          </FlexContainer>
+          <p>
+            {new Date().toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "long",
+            })}
+          </p>
+        </Header>
+        <HabitsList>
+          {searchHabit.length > 0 ? (
+            showHabits
+          ) : (
+            <SearchError>Não foi encontrado nenhum hábito</SearchError>
+          )}
+        </HabitsList>
 
-      <Modal open={openAddHabit} onClose={handleOpenAddHabit}>
-        <Box>
-          <AddHabitModal handleCloseAddHabit={handleCloseAddHabit} />
-        </Box>
-      </Modal>
-    </Container>
+        <Modal open={openAddHabit} onClose={handleOpenAddHabit}>
+          <Box>
+            <AddHabitModal handleCloseAddHabit={handleCloseAddHabit} />
+          </Box>
+        </Modal>
+      </Container>
     </PageContainer>
   );
 };

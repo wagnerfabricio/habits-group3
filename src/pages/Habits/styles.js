@@ -67,6 +67,52 @@ export const FlexContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  button {
+    background: none;
+    border: 3px solid transparent;
+
+    svg {
+      color: var(--color-white);
+    }
+
+    :hover {
+      border: 3px solid var(--color-white);
+      background: none;
+    }
+  }
+`;
+
+export const GroupMenu = styled.div`
+  display: flex;
+
+  div {
+    width: 0px;
+  }
+
+  h1 {
+    margin-left: 10px;
+  }
+`;
+
+export const ButtonAdd = styled.div`
+  display: grid;
+  place-items: center;
+  color: var(--color-green);
+  border: 3px solid var(--color-green);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  font-size: 19px;
+
+  :hover {
+    svg {
+      width: 35px;
+      color: var(--color-white);
+    }
+    background: var(--color-green);
+  }
 `;
 
 export const HabitsList = styled.ul`
