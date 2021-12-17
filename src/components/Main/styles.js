@@ -14,6 +14,9 @@ export const GridBox = styled.div`
 
   @media (min-width: 800px) {
     display: grid;
+  }
+
+  @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr;
   }
 `;
@@ -28,6 +31,13 @@ export const Content = styled.div`
 
     height: 86vh;
     box-sizing: border-box;
+<<<<<<< HEAD
+=======
+
+    @media (min-width: 800px) and (max-width: 1200px) {
+      height: 36vh;
+    }
+>>>>>>> developer
   }
 
   &.groups_list {
@@ -65,6 +75,13 @@ export const LeftBox = styled.div`
   grid-row-gap: 10px;
   padding: 10px;
   box-sizing: border-box;
+<<<<<<< HEAD
+=======
+
+  @media (min-width: 800px) and (max-width: 1200px) {
+    height: 50vh;
+  }
+>>>>>>> developer
 `;
 
 export const HabitsList = styled.ul`

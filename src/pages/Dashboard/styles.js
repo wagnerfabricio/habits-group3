@@ -4,6 +4,7 @@ export const Container = styled.div`
   /* display: flex; */
   height: 100vh;
   box-sizing: border-box;
+  background-color: var(--color-grey-50);
 
   @media (min-width: 1025px) {
     display: grid;

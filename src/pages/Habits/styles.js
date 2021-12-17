@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -79,6 +79,18 @@ export const FlexContainer = styled.div`
     :hover {
       border: 3px solid var(--color-white);
       background: none;
+    }
+  }
+
+  .searchButton {
+    background: var(--color-grey-10);
+
+    svg {
+      color: var(--color-grey-description);
+    }
+
+    :hover {
+      background: var(--color-white);
     }
   }
 `;

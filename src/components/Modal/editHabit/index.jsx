@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Container } from "./style";
 import { useUser } from "../../../providers/user";
 import { useHabits } from "../../../providers/habits.js"
@@ -55,10 +55,6 @@ const EditHabitModal = ({ handleCloseEditHabit, habit }) => {
         }
 
     }, [errors])
-
-
-    const test = habit.difficulty
-
 
 
     return (

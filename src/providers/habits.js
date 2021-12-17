@@ -78,6 +78,7 @@ export const HabitsProvider = ({ children }) => {
 
   useEffect(() => {
     getHabits();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

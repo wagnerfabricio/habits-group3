@@ -3,11 +3,9 @@ import {
   Content,
   ColumnBox,
   Counter,
-  IncreaseButton,
   Level,
   Container,
 } from "./styles";
-import { BsPlusLg } from "react-icons/bs";
 import { TiMediaFastForwardOutline } from "react-icons/ti";
 import { useHabits } from "../../providers/habits";
 import { useEffect, useState } from "react";
