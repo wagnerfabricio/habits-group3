@@ -14,6 +14,7 @@ export const Container = styled.footer`
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 2;
   p {
     margin-left: 10px;
   }
