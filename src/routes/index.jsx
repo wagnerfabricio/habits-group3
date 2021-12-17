@@ -1,4 +1,5 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
+import Route from "./route";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/Signup";
@@ -17,11 +18,11 @@ const Routes = () => {
         <Route component={Home} exact path="/" />
         <Route component={Login} path="/login" />
         <Route component={SignUp} path="/signup" />
-        <Route component={Dashboard} path="/dashboard" />
-        <Route component={Habits} path="/habits" />
-        <Route component={Goals} path="/goals" />
-        <Route component={Groups} path="/groups" />
-        <Route component={Activities} path="/activities" />
+        <Route component={Dashboard} path="/dashboard" isPrivate />
+        <Route component={Habits} path="/habits" isPrivate />
+        <Route component={Goals} path="/goals" isPrivate />
+        <Route component={Groups} path="/groups" isPrivate />
+        <Route component={Activities} path="/activities" isPrivate />
         <Route component={About} path="/about" />
       </Switch>
     </AnimatePresence>

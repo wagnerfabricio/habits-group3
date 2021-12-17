@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { api } from "../services/api";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 export const UserContext = createContext();
 
@@ -17,7 +18,9 @@ export const UserProvider = ({ children }) => {
     return {};
   });
 
-  const login = (data, history) => {
+  const history = useHistory();
+
+  const login = (data) => {
     api
       .post("/sessions/", data)
       .then(async (response) => {
@@ -31,7 +34,7 @@ export const UserProvider = ({ children }) => {
 
         setUserData({ token, user: userResponse.data });
         toast.success("Login efetuado com sucesso");
-        // history.push("/dashboard");
+        history.push("/dashboard");
       })
       .catch((error) => toast.error("Nome de usuário ou senha inválidos"));
   };
