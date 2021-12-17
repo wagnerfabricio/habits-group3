@@ -1,4 +1,3 @@
-import { ButtonAdd } from "../../components/ButtonAdd";
 import { Modal, Box, IconButton, Tooltip } from "@mui/material";
 import AddGroupModal from "../../components/Modal/addGroup";
 import { useEffect, useRef, useState } from "react";
@@ -13,12 +12,13 @@ import {
   ListBoxHeader,
   MainHeader,
   GroupMenu,
+  ButtonAdd,
 } from "./styles";
 import { ImSearch } from "react-icons/im";
 import { useUserGroups } from "../../providers/userGroups";
 import GroupCard from "../../components/GroupCard";
 import { useGroups } from "../../providers/groups";
-import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
+import { BsArrowRightShort, BsArrowLeftShort, BsPlusLg } from "react-icons/bs";
 import { AiOutlineHome } from "react-icons/ai";
 import { FlexContainer } from "../Habits/styles";
 import { useHistory } from "react-router-dom";
@@ -88,9 +88,12 @@ const Groups = () => {
             <FlexContainer>
               <GroupMenu>
                 <ButtonAdd
+                  style={{ width: "70px" }}
                   onClick={handleOpenAddGroupModal}
                   className="addGroupButton"
-                />
+                >
+                  <BsPlusLg />
+                </ButtonAdd>
                 <h1
                   onClick={() => {
                     searchGroup("");

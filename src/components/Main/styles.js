@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const GridBox = styled.div`
-  height: 90vh;
+  height: 87vh;
   box-sizing: border-box;
 
   @media (min-width: 800px) {
@@ -26,7 +26,7 @@ export const Content = styled.div`
     grid-template-rows: 0.3fr 5fr;
     grid-row-gap: 10px;
 
-    height: 90vh;
+    height: 86vh;
     box-sizing: border-box;
   }
 
@@ -44,7 +44,7 @@ export const Header = styled.header`
     object-position: bottom;
 
     width: 100%;
-    height: 10vw;
+    height: 6vw;
     border-radius: 10px 10px 0 0;
   }
 
@@ -59,9 +59,9 @@ export const Header = styled.header`
 `;
 
 export const LeftBox = styled.div`
-  height: 90vh;
+  height: 87vh;
   display: grid;
-  grid-template-rows: 0.3fr 4fr 0.3fr 2fr;
+  grid-template-rows: 0.3fr 2.6fr 0.3fr 2fr;
   grid-row-gap: 10px;
   padding: 10px;
   box-sizing: border-box;

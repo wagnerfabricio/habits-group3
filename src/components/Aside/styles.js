@@ -4,10 +4,10 @@ import { deepOrange } from "@mui/material/colors";
 export const Container = styled.aside`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color:  var(--color-grey-50);
+  background-color: var(--color-grey-50);
   @media (min-width: 800px) {
     max-width: 600px;
+    height: 100vh;
   }
 `;
 
@@ -20,14 +20,15 @@ export const UpperSection = styled.section`
   width: 100%;
 
   height: 55%;
-  padding: 50px 0;
-  gap: 20px 0;
+  /* padding: 50px 0;
+  gap: 20px 0; */
   border-radius: 15px;
   background: var(--color-grey-100);
   color: var(--color-white);
   @media (min-width: 800px) {
     padding: 30px 0;
     gap: 10px 0;
+    height: 55%;
   }
 
   h2 {
@@ -60,7 +61,7 @@ export const UserContainer = styled.div`
   width: 90%;
   height: 100%;
   max-height: 200px;
-  padding: 20px 0;
+  /* padding: 20px 0; */
 `;
 
 export const UserContent = styled.div`
@@ -85,7 +86,11 @@ export const CardsContainer = styled.div`
 
   gap: 10px;
   height: 100%;
-  padding: 10px;
+  padding: 20px;
+
+  @media (min-width: 800px) {
+    padding: 0;
+  }
 `;
 
 export const CardButton = styled.div`
@@ -118,8 +123,11 @@ export const LowerSection = styled.section`
   align-items: center;
   height: 40%;
   padding: 10px;
+  margin-bottom: 40px;
+
   @media (min-width: 800px) {
     max-width: 600px;
+    margin-bottom: 0;
   }
 
   svg {
@@ -159,14 +167,14 @@ export const Stats = styled.div`
 `;
 
 export const Button = styled.button`
+  align-self: flex-end;
   position: relative;
-  top: -40px;
-  right: -130px;
+  right: 10px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   border: none;
-  color: var( --color-grey-description);
+  color: var(--color-grey-description);
   background: none;
   font-weight: 600;
   transition: 0.5s;
@@ -174,8 +182,7 @@ export const Button = styled.button`
     color: white;
   }
   @media (min-width: 800px) {
-    position: absolute;
-    top: 20px;
-    left: 40px;
+    position: relative;
+    right: 10px;
   }
 `;

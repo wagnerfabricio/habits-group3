@@ -11,7 +11,7 @@ function App() {
       <ToastContainer />
       <GlobalStyle />
       <Routes />
-      <Footer whiteSchema={true}> <p> © 2021 Name. All rights reserved. </p> </Footer>
+      <Footer whiteSchema={true}> <p> © 2021 Habitus. All rights reserved. </p> </Footer>
     </div>
   );
 }
